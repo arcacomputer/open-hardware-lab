@@ -3,6 +3,9 @@
   "name": "arca-open-hardware-lab",
   "compatibility_date": "2026-08-27",
   "assets": { "directory": "./dist", "not_found_handling": "404-page" },
-  "workers_dev": true,
+  "routes": [
+    { "pattern": "ohl.arca.computer", "custom_domain": true }
+  ],
+  "workers_dev": false,
   "preview_urls": false
 }

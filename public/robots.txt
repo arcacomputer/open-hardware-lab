@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://arca-open-hardware-lab.lf-e32.workers.dev/sitemap-index.xml
+Sitemap: https://ohl.arca.computer/sitemap-index.xml

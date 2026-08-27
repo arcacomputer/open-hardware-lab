@@ -2,7 +2,7 @@
 
 Independent, open hardware compatibility research from Santiago, Chile.
 
-**Website:** https://arca-open-hardware-lab.lf-e32.workers.dev
+**Website:** https://ohl.arca.computer
 
 **Campaign 001:** Omarchy on laptops available in Chile
 

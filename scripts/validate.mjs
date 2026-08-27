@@ -30,19 +30,23 @@ for (const [value, label] of [
 ]) mustInclude(home, value, label);
 
 mustInclude(notFound, 'Nothing compiled here.', 'custom 404');
+mustInclude(home, '<link rel="canonical" href="https://ohl.arca.computer/">', 'custom-domain canonical');
 mustInclude(headers, "default-src 'self'", 'CSP');
 mustInclude(headers, 'payment=()', 'payment permission');
 mustInclude(headers, 'Cache-Control: no-transform', 'HTML transform protection');
-mustInclude(robots, 'sitemap-index.xml', 'sitemap discovery');
+mustInclude(robots, 'https://ohl.arca.computer/sitemap-index.xml', 'custom-domain sitemap discovery');
 mustInclude(config, '"directory": "./dist"', 'asset directory');
 mustInclude(config, '"not_found_handling": "404-page"', '404 handling');
+mustInclude(config, '"pattern": "ohl.arca.computer"', 'custom domain route');
+mustInclude(config, '"custom_domain": true', 'custom domain mode');
+mustInclude(config, '"workers_dev": false', 'provider hostname disabled');
 mustInclude(script, 'showModal()', 'checkout preview interaction');
 
 const visible = `${home}\n${notFound}\n${script}`;
 for (const marker of ['sk_live_', 'sk_test_', 'pk_live_', 'pk_test_']) {
   if (visible.includes(marker)) throw new Error(`secret scan: found ${marker}`);
 }
-if (/https?:\/\/(?!arca-open-hardware-lab\.lf-e32\.workers\.dev)/.test(script)) {
+if (/https?:\/\/(?!ohl\.arca\.computer)/.test(script)) {
   throw new Error('network boundary: client script contains an unexpected external URL');
 }
 for (const path of [
