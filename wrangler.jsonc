@@ -1,0 +1,8 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "arca-open-hardware-lab",
+  "compatibility_date": "2026-08-27",
+  "assets": { "directory": "./dist", "not_found_handling": "404-page" },
+  "workers_dev": true,
+  "preview_urls": false
+}

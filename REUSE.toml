@@ -1,0 +1,11 @@
+version = 1
+
+[[annotations]]
+path = ["src/**", "public/lab.js", "scripts/**", "astro.config.mjs", "wrangler.jsonc", "package.json"]
+SPDX-FileCopyrightText = "2026 Arca Computer, Inc."
+SPDX-License-Identifier = "MIT"
+
+[[annotations]]
+path = ["README.md", "CONTRIBUTING.md", "SECURITY.md", "governance/**", "hardware/**", "ledger/**", "methodology/**", "probe/README.md", "reports/**"]
+SPDX-FileCopyrightText = "2026 Arca Computer, Inc."
+SPDX-License-Identifier = "CC-BY-4.0"

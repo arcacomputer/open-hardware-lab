@@ -1,0 +1,20 @@
+{
+  "name": "arca-open-hardware-lab",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "check": "astro check",
+    "build": "astro build",
+    "validate": "node scripts/validate.mjs",
+    "preview": "wrangler dev",
+    "deploy": "wrangler deploy"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.9.6",
+    "@astrojs/sitemap": "^3.6.0",
+    "astro": "^7.2.8",
+    "typescript": "^5.9.3",
+    "wrangler": "^4.127.0"
+  }
+}

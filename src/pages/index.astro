@@ -1,0 +1,160 @@
+---
+import Layout from '../layouts/Layout.astro';
+const title = 'Arca Open Hardware Lab | Independent research from Chile';
+const description = 'An open hardware compatibility and upstream research program in Chile. Campaign 001 tests Omarchy on locally available laptops.';
+const repo = 'https://github.com/arcacomputer/open-hardware-lab';
+---
+<Layout {title} {description}>
+  <header class="wrap topbar">
+    <div class="brand"><span class="mark" aria-hidden="true"></span> ARCA OPEN HARDWARE LAB <span class="prototype">public research program</span></div>
+    <nav aria-label="Main navigation">
+      <a href="#work">Research</a>
+      <a href="#partners">Hardware partners</a>
+      <a href="#ledger">Ledger</a>
+      <a href="#fund">Support</a>
+      <a href={repo}>GitHub</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="wrap hero">
+      <div>
+        <div class="eyebrow"><span class="dot" aria-hidden="true"></span> Campaign 001: Omarchy in Latin America</div>
+        <h1>Test hardware.<span>Publish everything.</span></h1>
+        <p class="lead">An independent lab in Santiago testing hardware people can actually buy in Chile. Every method, failure, workaround, expense and upstream contribution stays public.</p>
+        <div class="hero-actions">
+          <a class="button" href="#partners">Send hardware to the lab</a>
+          <a class="button secondary" href={repo}>Browse the open repository</a>
+        </div>
+      </div>
+      <div class="machine" aria-label="Illustration of the proposed Omarchy test laptop">
+        <div class="laptop-lid">
+          <div class="terminal" aria-hidden="true">
+            <strong>$ omarchy-probe run</strong><br>
+            ✓ wifi_7&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;verified<br>
+            ✓ suspend&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;20 cycles<br>
+            ✓ audio&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pass<br>
+            <span class="muted-code">→ hardware/report-001.json</span><br>
+            <strong>→ upstream issue with evidence</strong> <span class="cursor"></span>
+          </div>
+        </div>
+        <div class="stamp">RESULTS STAY PUBLIC</div>
+      </div>
+    </section>
+
+    <div class="strip" aria-hidden="true"><div class="ticker"><span>OPEN METHODS</span><span>OPEN EXPENSES</span><span>OPEN FAILURES</span><span>UPSTREAM FIRST</span><span>INDEPENDENT RESULTS</span><span>OPEN METHODS</span><span>OPEN EXPENSES</span><span>OPEN FAILURES</span><span>UPSTREAM FIRST</span><span>INDEPENDENT RESULTS</span></div></div>
+
+    <section id="work" class="wrap">
+      <div class="section-head">
+        <div><div class="kicker">The research loop</div><h2>Hardware earns trust through evidence.</h2></div>
+        <p class="section-copy">The first campaign focuses on Omarchy. The durable program can test Linux distributions, developer tools and agent workloads without becoming a paid positive-review mill.</p>
+      </div>
+      <div class="flow">
+        <article><h3>Declare the unit</h3><p>Publish the exact model, configuration, source, ownership status, local price and any partner relationship.</p></article>
+        <article><h3>Test the whole machine</h3><p>Installation, battery, suspend, camera, audio, Wi-Fi, Bluetooth, GPU, containers and agent workloads.</p></article>
+        <article><h3>Reproduce failures</h3><p>Preserve logs, isolate causes, document workarounds and send upstream reports or patches when justified.</p></article>
+        <article><h3>Retest over time</h3><p>Track what changes after firmware, kernel and operating-system updates instead of publishing one disposable review.</p></article>
+      </div>
+    </section>
+
+    <section class="routes">
+      <div class="wrap">
+        <div class="section-head">
+          <div><div class="kicker">Two routes into the lab</div><h2>Buy local or supply a unit.</h2></div>
+          <p class="section-copy">Community-funded machines are purchased from Chilean retailers when possible. Companies can also provide hardware under a disclosed loan, permanent lab placement or local-distributor arrangement.</p>
+        </div>
+        <div class="route-grid">
+          <article class="route-card local">
+            <div class="route-label">Community route</div>
+            <h3>Purchased in Chile</h3>
+            <p>The campaign publishes a Chilean retail quote before fundraising. The listed price already includes local IVA, avoids surprise import charges and preserves local warranty support.</p>
+            <ul><li>Exact retailer and configuration</li><li>Local invoice and warranty</li><li>No international customs delay</li><li>Public expense ledger</li></ul>
+          </article>
+          <article class="route-card supplied">
+            <div class="route-label">Company route</div>
+            <h3>Supplied for research</h3>
+            <p>A manufacturer or distributor can place hardware in the lab. The relationship, ownership and logistics remain visible beside every result.</p>
+            <ul><li>Chilean-distributor delivery preferred</li><li>Prepaid return shipping for loaners</li><li>DDP for international shipments</li><li>No favorable-result guarantee</li></ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="partners" class="wrap">
+      <div class="section-head">
+        <div><div class="kicker">Hardware Partner Program</div><h2>Give the machine a public job.</h2></div>
+        <p class="section-copy">Partners fund testing capacity, not a verdict. Each intake path uses the same open methodology and disclosure rules.</p>
+      </div>
+      <div class="partner-grid">
+        <article><div class="partner-number">01</div><h3>Local review unit</h3><p>A unit delivered through a Chilean retailer or distributor. Best for clean logistics, warranty and repeatable local-market research.</p></article>
+        <article><div class="partner-number">02</div><h3>Temporary loaner</h3><p>A 30 to 60 day research loan with ownership, return date, condition and prepaid return logistics recorded publicly.</p></article>
+        <article><div class="partner-number">03</div><h3>Permanent lab unit</h3><p>Hardware retained for long-term regression testing. Permanent placement is disclosed on every report and in the asset register.</p></article>
+      </div>
+      <div class="partner-cta">
+        <div><strong>Want a machine tested in Chile?</strong><span>Send the model, configuration, availability and proposed logistics. Do not ship anything before written intake approval.</span></div>
+        <a class="button" href="mailto:contact@arca.computer?subject=Open%20Hardware%20Lab%20intake">Propose hardware</a>
+      </div>
+    </section>
+
+    <section id="ledger" class="proof">
+      <div class="wrap">
+        <div class="section-head">
+          <div><div class="kicker">Proof, not vibes</div><h2>The relationship is part of the result.</h2></div>
+          <p class="section-copy">Funding, ownership and partner involvement are published beside the technical evidence. A company may correct factual errors before publication, but it cannot approve the verdict.</p>
+        </div>
+        <div class="ledger" role="table" aria-label="Open Hardware Lab evidence ledger">
+          <div class="ledger-row" role="row"><span class="status" role="cell">LIVE</span><span role="cell">Publish the site, methodology and governance in an open repository</span><a class="evidence" role="cell" href={repo}>source</a></div>
+          <div class="ledger-row" role="row"><span class="status" role="cell">PLAN</span><span role="cell">Select Campaign 001 laptop from a Chilean retailer</span><span class="evidence" role="cell">quote required</span></div>
+          <div class="ledger-row" role="row"><span class="status" role="cell">PLAN</span><span role="cell">Release a privacy-scrubbed hardware probe</span><span class="evidence" role="cell">implementation pending</span></div>
+          <div class="ledger-row" role="row"><span class="status" role="cell">RULE</span><span role="cell">Publish unfavorable results without sponsor approval</span><span class="evidence" role="cell">non-negotiable</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="fund" class="wrap">
+      <div class="section-head">
+        <div><div class="kicker">Stripe-backed later</div><h2>Community support, with receipts.</h2></div>
+        <p class="section-copy">The buttons demonstrate a Stripe Checkout flow. Payments remain disabled until Campaign 001 has an exact Chilean retailer quote, approved terms and a refund policy.</p>
+      </div>
+      <div class="funding-grid">
+        <aside class="meter-card" aria-label="Illustrative campaign funding status">
+          <div class="kicker" style="color:var(--acid)">Target awaiting local quote</div>
+          <div class="amount">$0</div>
+          <div class="goal">no money accepted</div>
+          <div class="meter" aria-label="Zero percent funded"><span></span></div>
+          <p class="tiny">Final target = Chilean retailer price with IVA included + approved accessories + payment fees. No international shipping or import line item when the unit is bought locally.</p>
+        </aside>
+        <div>
+          <div class="tiers">
+            <article class="tier"><div><h3>Community supporter · $25</h3><p>Name or pseudonym in the public ledger. No influence over test results.</p></div><button class="button support" data-tier="Community supporter" data-amount="25">Preview</button></article>
+            <article class="tier"><div><h3>Lab member · $100</h3><p>Supporter credit plus a vote among pre-approved compatibility tests.</p></div><button class="button support" data-tier="Lab member" data-amount="100">Preview</button></article>
+            <article class="tier"><div><h3>OSS patron · $250</h3><p>Disclosed attribution on one lab report. Editorial independence remains absolute.</p></div><button class="button support" data-tier="OSS patron" data-amount="250">Preview</button></article>
+            <article class="tier"><div><h3>Lab sponsor · $500</h3><p>Organization attribution for one hardware cycle. No review approval or guaranteed upstream merge.</p></div><button class="button support" data-tier="Lab sponsor" data-amount="500">Preview</button></article>
+          </div>
+          <div class="integrity"><strong>Integrity clause:</strong> sponsorship purchases transparent attribution and testing capacity, not a favorable verdict, private user data, editorial control or a promised upstream merge.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap">
+      <div class="not-ad">
+        <div><h3>What stays open.</h3><ul><li>Methodology and test definitions</li><li>Hardware inventory and disclosures</li><li>Privacy-scrubbed evidence</li><li>Expenses, issues and upstream work</li></ul></div>
+        <div><h3>What partners cannot buy.</h3><ul><li>A positive result</li><li>Editorial approval</li><li>Removal of legitimate failures</li><li>A promised upstream merge</li></ul></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-grid"><span>Arca Computer, Inc. · Santiago, Chile · <a href={repo}>Open repository</a></span><span>Independent project. Campaign 001 is not affiliated with or endorsed by Omarchy or 37signals.</span></div>
+  </footer>
+
+  <dialog id="checkout" aria-labelledby="checkout-title">
+    <div class="dialog-body">
+      <div class="dialog-head"><div><div class="kicker">Stripe Checkout preview</div><h2 id="checkout-title">Support the lab</h2></div><button class="close" type="button" aria-label="Close checkout preview">×</button></div>
+      <div class="checkout-box"><div class="checkout-row"><span id="chosen-tier">Tier</span><strong id="chosen-amount">$0</strong></div><div class="checkout-row"><span>Payment processor</span><span>Stripe Checkout</span></div><div class="checkout-row"><span>Campaign status</span><strong>Awaiting local quote</strong></div></div>
+      <div class="notice"><strong>No payment will be taken.</strong> The live version would create a server-side Stripe Checkout Session only after the budget, terms, refund policy and hardware target are approved.</div>
+      <button class="button full" type="button" disabled aria-disabled="true">Checkout disabled in prototype</button>
+    </div>
+  </dialog>
+  <script is:inline src="/lab.js"></script>
+</Layout>
