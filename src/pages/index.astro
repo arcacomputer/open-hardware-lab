@@ -1,19 +1,23 @@
 ---
 import Layout from '../layouts/Layout.astro';
-const title = 'Arca Open Hardware Lab | Independent research from Chile';
-const description = 'An open hardware compatibility and upstream research program in Chile. Campaign 001 tests Omarchy on locally available laptops.';
+const title = 'Arca Open Hardware Lab | Open compatibility research';
+const description = 'An independent hardware compatibility lab based in Santiago. We register every unit, run reproducible tests, publish evidence and send failures upstream.';
 const repo = 'https://github.com/arcacomputer/open-hardware-lab';
+const methodology = `${repo}/tree/main/methodology`;
+const inventory = `${repo}/tree/main/hardware`;
+const ledger = `${repo}/tree/main/ledger`;
 const contact = 'ohl@arca.computer';
 const intakeEmail = `mailto:${contact}?subject=Open%20Hardware%20Lab%20intake`;
 const supportUrl = 'https://buy.stripe.com/aFacN41Lw5oH1BH7G57ss03';
 ---
 <Layout {title} {description}>
   <header class="wrap topbar">
-    <div class="brand"><span class="mark" aria-hidden="true"></span> ARCA OPEN HARDWARE LAB <span class="prototype">public research program</span></div>
+    <div class="brand"><span class="mark" aria-hidden="true"></span> ARCA OPEN HARDWARE LAB <span class="prototype">Santiago · Node 001</span></div>
     <nav aria-label="Main navigation">
-      <a href="#work">Research</a>
-      <a href="#partners">Hardware partners</a>
-      <a href="#ledger">Ledger</a>
+      <a href="#lab">Lab status</a>
+      <a href="#work">How it works</a>
+      <a href="#tracks">Research tracks</a>
+      <a href="#partners">Send hardware</a>
       <a href="#fund">Support</a>
       <a href={repo}>GitHub</a>
     </nav>
@@ -22,94 +26,143 @@ const supportUrl = 'https://buy.stripe.com/aFacN41Lw5oH1BH7G57ss03';
   <main>
     <section class="wrap hero">
       <div>
-        <div class="eyebrow"><span class="dot" aria-hidden="true"></span> Campaign 001: Omarchy in Latin America</div>
-        <h1>Test hardware.<span>Publish everything.</span></h1>
-        <p class="lead">An independent lab in Santiago testing hardware people can actually buy in Chile. Every method, failure, workaround, expense and upstream contribution stays public.</p>
+        <div class="eyebrow"><span class="dot" aria-hidden="true"></span> Hardware intake open · Santiago, Chile</div>
+        <h1>Test locally.<span>Publish globally.</span></h1>
+        <p class="lead">An independent compatibility lab that works with the hardware it can obtain, asks useful questions and publishes the unit, relationship, method, expense, failure and upstream outcome.</p>
         <div class="hero-actions">
-          <a class="button" href="#partners">Send hardware to the lab</a>
-          <a class="button secondary" href={repo}>Browse the open repository</a>
+          <a class="button" href={intakeEmail}>Offer hardware</a>
+          <a class="button secondary" href="#lab">See the open lab queue</a>
         </div>
       </div>
-      <div class="machine" aria-label="Illustration of the proposed Omarchy test laptop">
+      <div class="machine" aria-hidden="true">
         <div class="laptop-lid">
           <div class="terminal" aria-hidden="true">
-            <strong>$ omarchy-probe run</strong><br>
-            ✓ wifi_7&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;verified<br>
-            ✓ suspend&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;20 cycles<br>
-            ✓ audio&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pass<br>
-            <span class="muted-code">→ hardware/report-001.json</span><br>
-            <strong>→ upstream issue with evidence</strong> <span class="cursor"></span>
+            <strong>$ ohl status --node santiago-001</strong><br>
+            intake&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;open<br>
+            public_units&nbsp;&nbsp;0<br>
+            active_runs&nbsp;&nbsp;&nbsp;0<br>
+            reports&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0<br>
+            <span class="muted-code">→ queue: omarchy · linux · agents</span><br>
+            <strong>→ evidence before verdict</strong> <span class="cursor"></span>
           </div>
         </div>
         <div class="stamp">RESULTS STAY PUBLIC</div>
       </div>
     </section>
 
-    <div class="strip" aria-hidden="true"><div class="ticker"><span>OPEN METHODS</span><span>OPEN EXPENSES</span><span>OPEN FAILURES</span><span>UPSTREAM FIRST</span><span>INDEPENDENT RESULTS</span><span>OPEN METHODS</span><span>OPEN EXPENSES</span><span>OPEN FAILURES</span><span>UPSTREAM FIRST</span><span>INDEPENDENT RESULTS</span></div></div>
+    <div class="strip" aria-hidden="true"><div class="ticker"><span>OPEN PROVENANCE</span><span>REPRODUCIBLE RUNS</span><span>OPEN EXPENSES</span><span>UPSTREAM FIRST</span><span>INDEPENDENT RESULTS</span><span>OPEN PROVENANCE</span><span>REPRODUCIBLE RUNS</span><span>OPEN EXPENSES</span><span>UPSTREAM FIRST</span><span>INDEPENDENT RESULTS</span></div></div>
 
-    <section id="work" class="wrap">
-      <div class="section-head">
-        <div><div class="kicker">The research loop</div><h2>Hardware earns trust through evidence.</h2></div>
-        <p class="section-copy">The first campaign focuses on Omarchy. The durable program can test Linux distributions, developer tools and agent workloads without becoming a paid positive-review mill.</p>
+    <section class="definition">
+      <div class="wrap definition-grid">
+        <div class="kicker">What “open” means here</div>
+        <p>OHL does not claim that every computer it tests is open hardware. The <strong>methodology, provenance, disclosures, evidence, expense records and upstream work</strong> are open. Physical tests happen in Santiago today; the results are designed to be reproduced anywhere.</p>
       </div>
-      <div class="flow">
-        <article><h3>Declare the unit</h3><p>Publish the exact model, configuration, source, ownership status, local price and any partner relationship.</p></article>
-        <article><h3>Test the whole machine</h3><p>Installation, battery, suspend, camera, audio, Wi-Fi, Bluetooth, GPU, containers and agent workloads.</p></article>
-        <article><h3>Reproduce failures</h3><p>Preserve logs, isolate causes, document workarounds and send upstream reports or patches when justified.</p></article>
-        <article><h3>Retest over time</h3><p>Track what changes after firmware, kernel and operating-system updates instead of publishing one disposable review.</p></article>
+    </section>
+
+    <section id="lab" class="wrap">
+      <div class="section-head">
+        <div><div class="kicker">Live operating state</div><h2>The lab starts empty, not imaginary.</h2></div>
+        <p class="section-copy">OHL grows from hardware accepted, money actually available and questions worth answering. Empty states remain visible until evidence replaces them.</p>
+      </div>
+      <div class="status-grid">
+        <article><span class="state open">OPEN</span><h3>Hardware intake</h3><p>Proposals are reviewed before anything ships.</p></article>
+        <article><span class="state empty">EMPTY</span><h3>Public inventory</h3><p>No physical unit has been accepted into the public register yet.</p></article>
+        <article><span class="state ready">READY</span><h3>Baseline method</h3><p>Core test and evidence categories are published.</p><a href={methodology}>methodology</a></article>
+        <article><span class="state queue">QUEUE</span><h3>Research questions</h3><p>Omarchy, retail Linux compatibility and agent workloads are open tracks.</p></article>
+      </div>
+    </section>
+
+    <section id="work" class="proof">
+      <div class="wrap">
+        <div class="section-head">
+          <div><div class="kicker">Inventory-driven research</div><h2>Units, runs, reports, retests.</h2></div>
+          <p class="section-copy">Campaigns are optional procurement tools, not the lab’s skeleton. One machine can answer several questions across multiple operating systems and years.</p>
+        </div>
+        <div class="flow research-flow">
+          <article><h3>Register the unit</h3><p>Assign an OHL ID and publish the exact configuration, regional SKU, source, ownership and provider relationship.</p></article>
+          <article><h3>Choose the run</h3><p>Select an operating system and bounded research question based on public value, available funds and lab capacity.</p></article>
+          <article><h3>Publish the report</h3><p>Release privacy-scrubbed evidence, observations, failures, workarounds, expenses and upstream links.</p></article>
+          <article><h3>Retest over time</h3><p>Track what changes after firmware, kernel and operating-system updates instead of issuing one disposable verdict.</p></article>
+        </div>
       </div>
     </section>
 
     <section class="routes">
       <div class="wrap">
         <div class="section-head">
-          <div><div class="kicker">Two routes into the lab</div><h2>Buy local or supply a unit.</h2></div>
-          <p class="section-copy">Community-funded machines are purchased from Chilean retailers when possible. Companies can also provide hardware under a disclosed loan, permanent lab placement or local-distributor arrangement.</p>
+          <div><div class="kicker">Inputs, not promises</div><h2>Work with what is real.</h2></div>
+          <p class="section-copy">The next run comes from the intersection of available hardware, available lab funds, useful research questions and enough capacity to document the work properly.</p>
         </div>
         <div class="route-grid">
           <article class="route-card local">
-            <div class="route-label">Community route</div>
-            <h3>Purchased in Chile</h3>
-            <p>The campaign publishes a Chilean retail quote before fundraising. The listed price already includes local IVA, avoids surprise import charges and preserves local warranty support.</p>
-            <ul><li>Exact retailer and configuration</li><li>Local invoice and warranty</li><li>No international customs delay</li><li>Public expense ledger</li></ul>
+            <div class="route-label">Hardware pool</div>
+            <h3>What the lab can obtain.</h3>
+            <p>Owned machines, local retail purchases, permanent placements and approved loaners all enter the same public inventory system.</p>
+            <ul><li>Exact unit and regional SKU</li><li>Ownership and custody</li><li>Provider relationship</li><li>Return deadline when loaned</li></ul>
           </article>
           <article class="route-card supplied">
-            <div class="route-label">Company route</div>
-            <h3>Supplied for research</h3>
-            <p>A manufacturer or distributor can place hardware in the lab. The relationship, ownership and logistics remain visible beside every result.</p>
-            <ul><li>Chilean-distributor delivery preferred</li><li>Prepaid return shipping for loaners</li><li>DDP for international shipments</li><li>No favorable-result guarantee</li></ul>
+            <div class="route-label">Lab fund</div>
+            <h3>What the lab can afford.</h3>
+            <p>General support is pooled until a transparent allocation is made. A specific funding target is opened only when a particular purchase or study requires it.</p>
+            <ul><li>Gross support and processing fees</li><li>Public allocations</li><li>Retail invoices and logistics</li><li>No hidden preorder obligations</li></ul>
           </article>
         </div>
       </div>
     </section>
 
-    <section id="partners" class="wrap">
+    <section id="tracks" class="wrap">
       <div class="section-head">
-        <div><div class="kicker">Hardware Partner Program</div><h2>Give the machine a public job.</h2></div>
-        <p class="section-copy">Partners fund testing capacity, not a verdict. Each intake path uses the same open methodology and disclosure rules.</p>
+        <div><div class="kicker">Open research queue</div><h2>Questions can share hardware.</h2></div>
+        <p class="section-copy">Tracks organize ongoing questions. They do not lock a machine into one campaign or guarantee that every proposed run will happen.</p>
       </div>
-      <div class="partner-grid">
-        <article><div class="partner-number">01</div><h3>Local review unit</h3><p>A unit delivered through a Chilean retailer or distributor. Best for clean logistics, warranty and repeatable local-market research.</p></article>
-        <article><div class="partner-number">02</div><h3>Temporary loaner</h3><p>A 30 to 60 day research loan with ownership, return date, condition and prepaid return logistics recorded publicly.</p></article>
-        <article><div class="partner-number">03</div><h3>Permanent lab unit</h3><p>Hardware retained for long-term regression testing. Permanent placement is disclosed on every report and in the asset register.</p></article>
-      </div>
-      <div class="partner-cta">
-        <div><strong>Want a machine tested in Chile?</strong><span>Send the model, configuration, availability and proposed logistics to <a href={intakeEmail}>{contact}</a>. Do not ship anything before written intake approval.</span></div>
-        <a class="button" href={intakeEmail}>Propose hardware</a>
+      <div class="track-grid">
+        <article><span>01</span><h3>Omarchy compatibility</h3><p>Installation, daily use, power, suspend, media, graphics and update behavior on real machines.</p></article>
+        <article><span>02</span><h3>Retail Linux hardware</h3><p>Exact configurations people can actually buy, including regional component and warranty differences.</p></article>
+        <article><span>03</span><h3>Agent workstations</h3><p>Containers, local inference where practical, hosted-agent workflows, thermals and sustained developer use.</p></article>
+        <article><span>04</span><h3>Regression watch</h3><p>Repeatable retests after firmware, kernel and operating-system changes.</p></article>
       </div>
     </section>
 
-    <section id="ledger" class="proof">
+    <section id="partners" class="partner-section">
       <div class="wrap">
         <div class="section-head">
-          <div><div class="kicker">Proof, not vibes</div><h2>The relationship is part of the result.</h2></div>
-          <p class="section-copy">Funding, ownership and partner involvement are published beside the technical evidence. A company may correct factual errors before publication, but it cannot approve the verdict.</p>
+          <div><div class="kicker">Hardware intake</div><h2>Give a machine a public job.</h2></div>
+          <p class="section-copy">Do not ship first and negotiate later. Every unit needs written approval, declared ownership, workable logistics and permission to publish independent results.</p>
         </div>
-        <div class="ledger" role="table" aria-label="Open Hardware Lab evidence ledger">
-          <div class="ledger-row" role="row"><span class="status" role="cell">LIVE</span><span role="cell">Publish the site, methodology and governance in an open repository</span><a class="evidence" role="cell" href={repo}>source</a></div>
-          <div class="ledger-row" role="row"><span class="status" role="cell">PLAN</span><span role="cell">Select Campaign 001 laptop from a Chilean retailer</span><span class="evidence" role="cell">quote required</span></div>
-          <div class="ledger-row" role="row"><span class="status" role="cell">PLAN</span><span role="cell">Release a privacy-scrubbed hardware probe</span><span class="evidence" role="cell">implementation pending</span></div>
-          <div class="ledger-row" role="row"><span class="status" role="cell">RULE</span><span role="cell">Publish unfavorable results without sponsor approval</span><span class="evidence" role="cell">non-negotiable</span></div>
+        <div class="partner-grid">
+          <article><div class="partner-number">01</div><h3>Temporary loan</h3><p>A time-bounded research loan with arrival condition, public ownership, return date and prepaid return logistics.</p></article>
+          <article><div class="partner-number">02</div><h3>Permanent placement</h3><p>Ownership transfers to Arca so the machine can remain in the inventory for long-term regression testing.</p></article>
+          <article><div class="partner-number">03</div><h3>Retail delivery</h3><p>A partner funds or supplies an exact unit through an approved retailer or distributor with clean warranty and customs handling.</p></article>
+        </div>
+        <div class="intake-rules">
+          <div><div class="kicker">Acceptance gate</div><h3>Useful, documentable, unconditional.</h3></div>
+          <ul><li>Exact configuration known</li><li>Research value is clear</li><li>Shipping and return are solved</li><li>No favorable-result condition</li></ul>
+        </div>
+        <div class="partner-cta">
+          <div><strong>Want to offer hardware?</strong><span>Email the model, exact configuration, location, ownership proposal and shipping plan to <a href={intakeEmail}>{contact}</a>. A suggestion does not guarantee an operating system, schedule, report or positive result.</span></div>
+          <a class="button" href={intakeEmail}>Start intake</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="ledger" class="proof ledger-section">
+      <div class="wrap">
+        <div class="section-head">
+          <div><div class="kicker">Public record</div><h2>Follow the unit to the outcome.</h2></div>
+          <p class="section-copy">Every accepted unit connects provenance, custody, test runs, reports, expenses and upstream work. Nothing is promoted from empty to complete by vibes.</p>
+        </div>
+        <div class="ledger-wrap">
+          <table class="ledger">
+            <caption class="sr-only">Current Open Hardware Lab operating ledger</caption>
+            <thead><tr><th scope="col">State</th><th scope="col">Record</th><th scope="col">Evidence</th></tr></thead>
+            <tbody>
+              <tr><td><span class="status">OPEN</span></td><td>Hardware proposals accepted through written intake</td><td><a class="evidence" href={intakeEmail}>contact</a></td></tr>
+              <tr><td><span class="status">READY</span></td><td>Baseline methodology and evidence rules</td><td><a class="evidence" href={methodology}>source</a></td></tr>
+              <tr><td><span class="status">EMPTY</span></td><td>No public hardware unit accepted yet</td><td><a class="evidence" href={inventory}>inventory</a></td></tr>
+              <tr><td><span class="status">QUEUE</span></td><td>Omarchy, retail Linux and agent workload tracks</td><td><a class="evidence" href={repo}>repository</a></td></tr>
+              <tr><td><span class="status">LIVE</span></td><td>Unrestricted voluntary support is available</td><td><a class="evidence" href={ledger}>ledger policy</a></td></tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </section>
@@ -120,20 +173,20 @@ const supportUrl = 'https://buy.stripe.com/aFacN41Lw5oH1BH7G57ss03';
         <span>Stripe has sent the receipt to the email used at checkout.</span>
       </div>
       <div class="section-head">
-        <div><div class="kicker">Stripe-backed support</div><h2>Fund public hardware research.</h2></div>
-        <p class="section-copy">Choose a one-time amount in USD. Stripe handles the payment and receipt; the lab publishes how support is used in its open expense ledger.</p>
+        <div><div class="kicker">Stripe-backed support</div><h2>Fund the lab, not a verdict.</h2></div>
+        <p class="section-copy">Choose a one-time amount in USD. Support joins the unallocated OHL pool until the lab publishes a specific hardware, logistics or research allocation.</p>
       </div>
       <div class="funding-grid">
         <aside class="meter-card" aria-label="Open Hardware Lab support model">
           <div class="kicker" style="color:var(--acid)">You choose the amount</div>
           <div class="amount">$5+</div>
           <div class="goal">one-time support in USD</div>
-          <p class="tiny">Support is not a preorder. Campaign hardware targets remain separate and will use exact Chilean retailer quotes with IVA included before any purchase is announced.</p>
+          <p class="tiny">General support is not a preorder, reservation, purchased test or guarantee that a particular machine, operating system or report will be selected.</p>
         </aside>
         <div class="support-card">
           <div class="kicker">Voluntary support</div>
-          <h3>Back the work, not a verdict.</h3>
-          <p>Your payment supports independent testing, public evidence, hardware purchases and upstream work. It does not buy goods, services, attribution, editorial control or a favorable result.</p>
+          <h3>Back open evidence.</h3>
+          <p>Your payment supports independent testing, public evidence, equipment and upstream work. It does not buy goods, services, attribution, editorial control or a favorable result.</p>
           <ul>
             <li>One-time, customer-chosen amount</li>
             <li>Processed and receipted by Stripe</li>
@@ -144,21 +197,21 @@ const supportUrl = 'https://buy.stripe.com/aFacN41Lw5oH1BH7G57ss03';
             <a class="button" href={supportUrl} rel="external nofollow">Support with Stripe</a>
             <a href="/support-terms/">Read the support terms</a>
           </div>
-          <div class="integrity"><strong>Integrity clause:</strong> support funds testing capacity, not a positive result, private user data, editorial control or a promised upstream merge.</div>
+          <div class="integrity"><strong>Integrity clause:</strong> support funds lab capacity, not a positive result, private user data, editorial control or a promised upstream merge.</div>
         </div>
       </div>
     </section>
 
     <section class="wrap">
       <div class="not-ad">
-        <div><h3>What stays open.</h3><ul><li>Methodology and test definitions</li><li>Hardware inventory and disclosures</li><li>Privacy-scrubbed evidence</li><li>Expenses, issues and upstream work</li></ul></div>
-        <div><h3>What partners cannot buy.</h3><ul><li>A positive result</li><li>Editorial approval</li><li>Removal of legitimate failures</li><li>A promised upstream merge</li></ul></div>
+        <div><h3>What stays open.</h3><ul><li>Unit provenance and custody</li><li>Methodology and test definitions</li><li>Privacy-scrubbed evidence</li><li>Expenses, failures and upstream work</li></ul></div>
+        <div><h3>What nobody can buy.</h3><ul><li>A positive result</li><li>A guaranteed test or deadline</li><li>Editorial approval</li><li>Removal of legitimate failures</li></ul></div>
       </div>
     </section>
   </main>
 
   <footer>
-    <div class="wrap footer-grid"><span>Arca Computer, Inc. · Santiago, Chile · <a href={intakeEmail}>{contact}</a> · <a href={repo}>Open repository</a></span><span>Independent project. Campaign 001 is not affiliated with or endorsed by Omarchy or 37signals.</span></div>
+    <div class="wrap footer-grid"><span>Arca Computer, Inc. · Santiago Lab, Node 001 · <a href={intakeEmail}>{contact}</a> · <a href={repo}>Open repository</a></span><span>Based in Chile. Built for reproducible use anywhere. Independent from tested vendors and operating-system projects.</span></div>
   </footer>
 
   <script is:inline src="/lab.js"></script>

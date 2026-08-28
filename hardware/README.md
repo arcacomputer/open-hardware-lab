@@ -1,15 +1,27 @@
-# Hardware register
+# Public hardware register
 
-One directory will be created for each accepted machine. Use [TEMPLATE.md](TEMPLATE.md) for intake.
+One directory is created for each accepted physical machine. Use [TEMPLATE.md](TEMPLATE.md) for intake and assign a stable OHL unit ID.
 
-No hardware has been accepted, loaned, donated or purchased for Campaign 001 yet.
+No hardware unit has been accepted into the public register yet.
 
-## Ownership states
+## Intake types
 
-- `purchased-local`
-- `loaned`
+- `owned`
+- `purchased-lab-funds`
+- `purchased-partner-funds`
+- `temporary-loan`
 - `permanent-placement`
-- `community-funded`
-- `mixed-funded`
 
-Every machine record must state its current owner, custody period, return obligation and final disposition.
+## Inventory states
+
+- `proposed`
+- `accepted`
+- `in-lab`
+- `testing`
+- `returned`
+- `retained`
+- `retired`
+
+Every record must state exact public configuration, regional SKU, provenance, funding source, current owner, physical custodian, return obligation, provider relationship and final disposition. Serial numbers remain private.
+
+A unit may appear in multiple operating-system runs, research tracks, reports and retests.

@@ -1,43 +1,66 @@
-# Hardware record: manufacturer and model
+# Hardware unit: OHL-U0000 · manufacturer and model
 
-## Identity
+## Public identity
 
+- OHL unit ID:
 - Manufacturer:
 - Model:
-- Exact configuration:
-- Serial number: **never publish**
+- Regional SKU:
+- Exact public configuration:
+- Serial number: **store privately; never publish**
+- Hardware fingerprint:
 - Firmware at intake:
-- Retail availability in Chile:
-- Chilean retail price, if applicable:
+- Country and market availability:
+- Public inventory status: proposed | accepted | in-lab | testing | returned | retained | retired
 
-## Relationship and ownership
+## Provenance, relationship and custody
 
-- Intake type: purchased-local | loaned | permanent-placement | community-funded | mixed-funded
+- Intake type: owned | purchased-lab-funds | purchased-partner-funds | temporary-loan | permanent-placement
 - Provider or retailer:
-- Owner:
-- Custodian:
+- Funding source:
+- Declared retail price or value:
+- Discounts, cash or accessories supplied:
+- Legal owner:
+- Physical custodian:
 - Received date:
 - Return deadline, if any:
-- Shipping and customs responsibility:
-- Discounts, cash or accessories supplied:
+- Shipping, customs and return responsibility:
+- Arrival condition recorded:
 
-## Research scope
+## Acceptance gate
 
-- Operating systems:
-- Planned tests:
-- Exclusions:
-- Research window:
+- Exact configuration verified:
+- Public research value:
+- Relationship may be disclosed:
+- No favorable-result condition:
+- Logistics approved:
+- Capacity approved:
+- Written intake approval:
 
-## Evidence
+## Research queue
 
+- Candidate operating systems:
+- Candidate research tracks:
+- Proposed questions:
+- Exclusions or safety constraints:
+- Initial run selected:
+- Selection rationale:
+- No schedule or publication guarantee acknowledged:
+
+## Runs and evidence
+
+- Run IDs:
+- Methodology versions:
 - Privacy scrub completed:
-- Raw evidence path:
-- Report path:
+- Raw evidence paths:
+- Report paths:
 - Upstream issues:
 - Upstream pull requests:
 
-## Disposition
+## Disposition and retests
 
-- Current status:
+- Current physical status:
 - Return or retention outcome:
 - Last verified:
+- Next eligible retest:
+- Retirement reason, if applicable:
