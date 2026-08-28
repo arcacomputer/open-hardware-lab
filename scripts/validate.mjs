@@ -32,7 +32,7 @@ for (const [value, label] of [
   ['Omarchy compatibility', 'Omarchy research track'],
   ['Retail Linux hardware', 'retail research track'],
   ['Agent workstations', 'agent-workstation track'],
-  ['Temporary loan', 'loan intake'],
+  ['arrival condition, disclosed ownership, return date', 'loan ownership disclosure'],
   ['Permanent placement', 'retained-unit intake'],
   ['Retail delivery', 'retailer intake'],
   ['A suggestion does not guarantee an operating system, schedule, report or positive result.', 'no intake promise'],
