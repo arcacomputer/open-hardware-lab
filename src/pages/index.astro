@@ -3,6 +3,8 @@ import Layout from '../layouts/Layout.astro';
 const title = 'Arca Open Hardware Lab | Independent research from Chile';
 const description = 'An open hardware compatibility and upstream research program in Chile. Campaign 001 tests Omarchy on locally available laptops.';
 const repo = 'https://github.com/arcacomputer/open-hardware-lab';
+const contact = 'ohl@arca.computer';
+const intakeEmail = `mailto:${contact}?subject=Open%20Hardware%20Lab%20intake`;
 ---
 <Layout {title} {description}>
   <header class="wrap topbar">
@@ -91,8 +93,8 @@ const repo = 'https://github.com/arcacomputer/open-hardware-lab';
         <article><div class="partner-number">03</div><h3>Permanent lab unit</h3><p>Hardware retained for long-term regression testing. Permanent placement is disclosed on every report and in the asset register.</p></article>
       </div>
       <div class="partner-cta">
-        <div><strong>Want a machine tested in Chile?</strong><span>Send the model, configuration, availability and proposed logistics. Do not ship anything before written intake approval.</span></div>
-        <a class="button" href="mailto:contact@arca.computer?subject=Open%20Hardware%20Lab%20intake">Propose hardware</a>
+        <div><strong>Want a machine tested in Chile?</strong><span>Send the model, configuration, availability and proposed logistics to <a href={intakeEmail}>{contact}</a>. Do not ship anything before written intake approval.</span></div>
+        <a class="button" href={intakeEmail}>Propose hardware</a>
       </div>
     </section>
 
@@ -145,7 +147,7 @@ const repo = 'https://github.com/arcacomputer/open-hardware-lab';
   </main>
 
   <footer>
-    <div class="wrap footer-grid"><span>Arca Computer, Inc. · Santiago, Chile · <a href={repo}>Open repository</a></span><span>Independent project. Campaign 001 is not affiliated with or endorsed by Omarchy or 37signals.</span></div>
+    <div class="wrap footer-grid"><span>Arca Computer, Inc. · Santiago, Chile · <a href={intakeEmail}>{contact}</a> · <a href={repo}>Open repository</a></span><span>Independent project. Campaign 001 is not affiliated with or endorsed by Omarchy or 37signals.</span></div>
   </footer>
 
   <dialog id="checkout" aria-labelledby="checkout-title">

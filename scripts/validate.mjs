@@ -22,6 +22,8 @@ for (const [value, label] of [
   ['Hardware Partner Program', 'partner program'],
   ['Temporary loaner', 'loaner intake'],
   ['Permanent lab unit', 'long-term intake'],
+  ['mailto:ohl@arca.computer?subject=Open%20Hardware%20Lab%20intake', 'dedicated lab inbox link'],
+  ['ohl@arca.computer', 'visible lab contact'],
   ['Checkout disabled in prototype', 'payment boundary'],
   ['not affiliated with or endorsed by Omarchy or 37signals.', 'affiliation disclaimer'],
   ['https://github.com/arcacomputer/open-hardware-lab', 'public repository link'],

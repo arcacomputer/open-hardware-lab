@@ -24,7 +24,7 @@ Companies may propose:
 
 International units must not be shipped before written intake approval. A local distributor or DDP shipment is preferred. The provider relationship and ownership status are disclosed beside every result.
 
-Email proposals to [contact@arca.computer](mailto:contact@arca.computer?subject=Open%20Hardware%20Lab%20intake).
+Email proposals to [ohl@arca.computer](mailto:ohl@arca.computer?subject=Open%20Hardware%20Lab%20intake).
 
 ## Independence
 
