@@ -5,6 +5,7 @@ const description = 'An open hardware compatibility and upstream research progra
 const repo = 'https://github.com/arcacomputer/open-hardware-lab';
 const contact = 'ohl@arca.computer';
 const intakeEmail = `mailto:${contact}?subject=Open%20Hardware%20Lab%20intake`;
+const supportUrl = 'https://buy.stripe.com/aFacN41Lw5oH1BH7G57ss03';
 ---
 <Layout {title} {description}>
   <header class="wrap topbar">
@@ -114,26 +115,36 @@ const intakeEmail = `mailto:${contact}?subject=Open%20Hardware%20Lab%20intake`;
     </section>
 
     <section id="fund" class="wrap">
+      <div id="support-thanks" class="support-thanks" role="status" hidden>
+        <strong>Support received. Thank you.</strong>
+        <span>Stripe has sent the receipt to the email used at checkout.</span>
+      </div>
       <div class="section-head">
-        <div><div class="kicker">Stripe-backed later</div><h2>Community support, with receipts.</h2></div>
-        <p class="section-copy">The buttons demonstrate a Stripe Checkout flow. Payments remain disabled until Campaign 001 has an exact Chilean retailer quote, approved terms and a refund policy.</p>
+        <div><div class="kicker">Stripe-backed support</div><h2>Fund public hardware research.</h2></div>
+        <p class="section-copy">Choose a one-time amount in USD. Stripe handles the payment and receipt; the lab publishes how support is used in its open expense ledger.</p>
       </div>
       <div class="funding-grid">
-        <aside class="meter-card" aria-label="Illustrative campaign funding status">
-          <div class="kicker" style="color:var(--acid)">Target awaiting local quote</div>
-          <div class="amount">$0</div>
-          <div class="goal">no money accepted</div>
-          <div class="meter" aria-label="Zero percent funded"><span></span></div>
-          <p class="tiny">Final target = Chilean retailer price with IVA included + approved accessories + payment fees. No international shipping or import line item when the unit is bought locally.</p>
+        <aside class="meter-card" aria-label="Open Hardware Lab support model">
+          <div class="kicker" style="color:var(--acid)">You choose the amount</div>
+          <div class="amount">$5+</div>
+          <div class="goal">one-time support in USD</div>
+          <p class="tiny">Support is not a preorder. Campaign hardware targets remain separate and will use exact Chilean retailer quotes with IVA included before any purchase is announced.</p>
         </aside>
-        <div>
-          <div class="tiers">
-            <article class="tier"><div><h3>Community supporter · $25</h3><p>Name or pseudonym in the public ledger. No influence over test results.</p></div><button class="button support" data-tier="Community supporter" data-amount="25">Preview</button></article>
-            <article class="tier"><div><h3>Lab member · $100</h3><p>Supporter credit plus a vote among pre-approved compatibility tests.</p></div><button class="button support" data-tier="Lab member" data-amount="100">Preview</button></article>
-            <article class="tier"><div><h3>OSS patron · $250</h3><p>Disclosed attribution on one lab report. Editorial independence remains absolute.</p></div><button class="button support" data-tier="OSS patron" data-amount="250">Preview</button></article>
-            <article class="tier"><div><h3>Lab sponsor · $500</h3><p>Organization attribution for one hardware cycle. No review approval or guaranteed upstream merge.</p></div><button class="button support" data-tier="Lab sponsor" data-amount="500">Preview</button></article>
+        <div class="support-card">
+          <div class="kicker">Voluntary support</div>
+          <h3>Back the work, not a verdict.</h3>
+          <p>Your payment supports independent testing, public evidence, hardware purchases and upstream work. It does not buy goods, services, attribution, editorial control or a favorable result.</p>
+          <ul>
+            <li>One-time, customer-chosen amount</li>
+            <li>Processed and receipted by Stripe</li>
+            <li>Recorded as support revenue by Arca Computer, Inc.</li>
+            <li>Not a charitable contribution or tax-deductible</li>
+          </ul>
+          <div class="support-actions">
+            <a class="button" href={supportUrl} rel="external nofollow">Support with Stripe</a>
+            <a href="/support-terms/">Read the support terms</a>
           </div>
-          <div class="integrity"><strong>Integrity clause:</strong> sponsorship purchases transparent attribution and testing capacity, not a favorable verdict, private user data, editorial control or a promised upstream merge.</div>
+          <div class="integrity"><strong>Integrity clause:</strong> support funds testing capacity, not a positive result, private user data, editorial control or a promised upstream merge.</div>
         </div>
       </div>
     </section>
@@ -150,13 +161,5 @@ const intakeEmail = `mailto:${contact}?subject=Open%20Hardware%20Lab%20intake`;
     <div class="wrap footer-grid"><span>Arca Computer, Inc. · Santiago, Chile · <a href={intakeEmail}>{contact}</a> · <a href={repo}>Open repository</a></span><span>Independent project. Campaign 001 is not affiliated with or endorsed by Omarchy or 37signals.</span></div>
   </footer>
 
-  <dialog id="checkout" aria-labelledby="checkout-title">
-    <div class="dialog-body">
-      <div class="dialog-head"><div><div class="kicker">Stripe Checkout preview</div><h2 id="checkout-title">Support the lab</h2></div><button class="close" type="button" aria-label="Close checkout preview">×</button></div>
-      <div class="checkout-box"><div class="checkout-row"><span id="chosen-tier">Tier</span><strong id="chosen-amount">$0</strong></div><div class="checkout-row"><span>Payment processor</span><span>Stripe Checkout</span></div><div class="checkout-row"><span>Campaign status</span><strong>Awaiting local quote</strong></div></div>
-      <div class="notice"><strong>No payment will be taken.</strong> The live version would create a server-side Stripe Checkout Session only after the budget, terms, refund policy and hardware target are approved.</div>
-      <button class="button full" type="button" disabled aria-disabled="true">Checkout disabled in prototype</button>
-    </div>
-  </dialog>
   <script is:inline src="/lab.js"></script>
 </Layout>

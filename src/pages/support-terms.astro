@@ -1,0 +1,65 @@
+---
+import Layout from '../layouts/Layout.astro';
+const title = 'Support terms | Arca Open Hardware Lab';
+const description = 'Terms for voluntary payments supporting the Arca Open Hardware Lab.';
+const contact = 'ohl@arca.computer';
+const supportUrl = 'https://buy.stripe.com/aFacN41Lw5oH1BH7G57ss03';
+---
+<Layout {title} {description}>
+  <header class="wrap topbar">
+    <a class="brand" href="/"><span class="mark" aria-hidden="true"></span> ARCA OPEN HARDWARE LAB</a>
+    <nav aria-label="Support terms navigation"><a href="/#fund">Support</a><a href="/">Lab home</a></nav>
+  </header>
+
+  <main class="wrap terms-page">
+    <div class="kicker">Effective August 28, 2026</div>
+    <h1>Support terms.</h1>
+    <p class="lead">These terms apply to voluntary payments made through the Arca Open Hardware Lab Stripe Payment Link.</p>
+
+    <div class="terms-grid">
+      <section>
+        <h2>Who receives the payment</h2>
+        <p>Payments are made to Arca Computer, Inc., a Delaware for-profit corporation operating the Arca Open Hardware Lab. The lab is not a charity or tax-exempt organization.</p>
+      </section>
+
+      <section>
+        <h2>What support means</h2>
+        <p>Your payment supports independent hardware testing, public research evidence, lab equipment and upstream open-source work. It is voluntary and does not purchase hardware, services, access, attribution, advertising, editorial control, a favorable result or a promised upstream contribution.</p>
+      </section>
+
+      <section>
+        <h2>No charitable deduction</h2>
+        <p>Payments are not charitable contributions and are not tax-deductible as charitable donations. Stripe's receipt confirms payment processing; it is not a charitable-donation receipt.</p>
+      </section>
+
+      <section>
+        <h2>Amount and processing</h2>
+        <p>You choose a one-time amount in USD, subject to the limits displayed by Stripe. Stripe processes the payment and may offer payment methods based on your location and account. Stripe's own terms and privacy policy also apply to its checkout.</p>
+      </section>
+
+      <section>
+        <h2>No campaign guarantee</h2>
+        <p>Support does not reserve a product or guarantee that a particular machine, test, report or campaign will be completed. Hardware campaigns use separately published targets, quotes and disclosures.</p>
+      </section>
+
+      <section>
+        <h2>Refunds and payment errors</h2>
+        <p>Voluntary support payments are normally final. For duplicate charges, payment errors or suspected unauthorized use, email <a href={`mailto:${contact}?subject=OHL%20support%20payment`}>{contact}</a> within 14 days. Nothing here limits rights that cannot legally be waived.</p>
+      </section>
+
+      <section>
+        <h2>Independence</h2>
+        <p>Support never buys a positive verdict. Arca may publish failures, security-relevant findings, funding disclosures and conflicts of interest as part of the research record.</p>
+      </section>
+
+      <section>
+        <h2>Questions</h2>
+        <p>Contact <a href={`mailto:${contact}?subject=OHL%20support%20question`}>{contact}</a> before paying if you need clarification. These terms may change prospectively; the version shown when you pay applies to that payment.</p>
+      </section>
+    </div>
+
+    <div class="terms-actions"><a class="button" href={supportUrl} rel="external nofollow">Continue to Stripe</a><a href="/#fund">Return to support overview</a></div>
+  </main>
+
+  <footer><div class="wrap footer-grid"><span>Arca Computer, Inc. · <a href={`mailto:${contact}`}>{contact}</a></span><span>Independent public hardware research.</span></div></footer>
+</Layout>

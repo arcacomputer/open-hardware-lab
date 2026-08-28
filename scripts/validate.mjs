@@ -7,8 +7,9 @@ const mustInclude = (text, value, label) => {
   if (!text.includes(value)) throw new Error(`${label}: missing ${value}`);
 };
 
-const [home, notFound, headers, robots, config, script] = await Promise.all([
+const [home, supportTerms, notFound, headers, robots, config, script] = await Promise.all([
   read('dist/index.html'),
+  read('dist/support-terms/index.html'),
   read('dist/404.html'),
   read('dist/_headers'),
   read('dist/robots.txt'),
@@ -24,7 +25,9 @@ for (const [value, label] of [
   ['Permanent lab unit', 'long-term intake'],
   ['mailto:ohl@arca.computer?subject=Open%20Hardware%20Lab%20intake', 'dedicated lab inbox link'],
   ['ohl@arca.computer', 'visible lab contact'],
-  ['Checkout disabled in prototype', 'payment boundary'],
+  ['https://buy.stripe.com/aFacN41Lw5oH1BH7G57ss03', 'live Stripe support link'],
+  ['Not a charitable contribution or tax-deductible', 'support tax disclosure'],
+  ['Read the support terms', 'support terms link'],
   ['not affiliated with or endorsed by Omarchy or 37signals.', 'affiliation disclaimer'],
   ['https://github.com/arcacomputer/open-hardware-lab', 'public repository link'],
   ['rel="canonical"', 'canonical metadata'],
@@ -32,6 +35,9 @@ for (const [value, label] of [
 ]) mustInclude(home, value, label);
 
 mustInclude(notFound, 'Nothing compiled here.', 'custom 404');
+mustInclude(supportTerms, 'Support terms.', 'support terms page');
+mustInclude(supportTerms, 'normally final', 'refund policy');
+mustInclude(supportTerms, 'not a charity or tax-exempt organization', 'entity disclosure');
 mustInclude(home, '<link rel="canonical" href="https://ohl.arca.computer/">', 'custom-domain canonical');
 mustInclude(headers, "default-src 'self'", 'CSP');
 mustInclude(headers, 'payment=()', 'payment permission');
@@ -42,9 +48,9 @@ mustInclude(config, '"not_found_handling": "404-page"', '404 handling');
 mustInclude(config, '"pattern": "ohl.arca.computer"', 'custom domain route');
 mustInclude(config, '"custom_domain": true', 'custom domain mode');
 mustInclude(config, '"workers_dev": false', 'provider hostname disabled');
-mustInclude(script, 'showModal()', 'checkout preview interaction');
+mustInclude(script, "params.get('support') === 'thanks'", 'support completion message');
 
-const visible = `${home}\n${notFound}\n${script}`;
+const visible = `${home}\n${supportTerms}\n${notFound}\n${script}`;
 for (const marker of ['sk_live_', 'sk_test_', 'pk_live_', 'pk_test_']) {
   if (visible.includes(marker)) throw new Error(`secret scan: found ${marker}`);
 }

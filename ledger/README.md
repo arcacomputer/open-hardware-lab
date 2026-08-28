@@ -14,6 +14,6 @@ This directory will connect money and hardware custody to public research outcom
 
 ## Current state
 
-No campaign payments are accepted. No Campaign 001 hardware has been purchased or supplied. The Stripe interface on the website is a disabled preview.
+The lab accepts one-time, customer-chosen voluntary support through a Stripe-hosted Payment Link. Support is not a Campaign 001 preorder, does not reserve hardware and provides no goods, services or editorial influence. Campaign-specific fundraising remains inactive until an exact hardware target and Chilean retailer quote are published.
 
 Sensitive invoices may be redacted for addresses, tax identifiers, payment details and serial numbers while preserving seller, date, item and amount evidence.

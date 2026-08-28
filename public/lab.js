@@ -1,14 +1,6 @@
-const dialog = document.querySelector('#checkout');
-    const tier = document.querySelector('#chosen-tier');
-    const amount = document.querySelector('#chosen-amount');
-    document.querySelectorAll('.support').forEach((button) => {
-      button.addEventListener('click', () => {
-        tier.textContent = button.dataset.tier;
-        amount.textContent = `$${button.dataset.amount} USD`;
-        dialog.showModal();
-      });
-    });
-    document.querySelector('.close').addEventListener('click', () => dialog.close());
-    dialog.addEventListener('click', (event) => {
-      if (event.target === dialog) dialog.close();
-    });
+const params = new URLSearchParams(window.location.search);
+const supportThanks = document.querySelector('#support-thanks');
+
+if (supportThanks && params.get('support') === 'thanks') {
+  supportThanks.hidden = false;
+}
