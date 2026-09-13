@@ -1,0 +1,297 @@
+---
+const pins = Array.from({ length: 12 }, (_, i) => i);
+const fins = Array.from({ length: 15 }, (_, i) => i);
+---
+
+<div class="hardware-figure">
+  <div class="figure-top mono">
+    <span>FIG. 001 / INSIDE THE MACHINE</span>
+    <span class="figure-cross" aria-hidden="true">
+      +
+    </span>
+  </div>
+  <svg
+    class="hardware-svg"
+    viewBox="0 0 640 590"
+    fill="none"
+    role="img"
+    aria-labelledby="hardware-title hardware-desc"
+  >
+    <title id="hardware-title">Exploded view of a computer assembly</title>
+    <desc id="hardware-desc">
+      A custom technical illustration separating the heatsink, circuit board and
+      chassis to reveal what is inside. This is a concept drawing, not a tested
+      lab unit.
+    </desc>
+    <defs>
+      <pattern
+        id="drawing-grid"
+        width="28"
+        height="28"
+        patternUnits="userSpaceOnUse"
+      >
+        <path
+          d="M28 0H0v28"
+          stroke="#233c30"
+          stroke-opacity=".055"
+          stroke-width="1"
+        />
+      </pattern>
+      <pattern id="hatch" width="5" height="5" patternUnits="userSpaceOnUse">
+        <path d="m0 5 5-5" stroke="#537363" stroke-width=".6" />
+      </pattern>
+      <linearGradient
+        id="base-metal"
+        x1="0"
+        y1="0"
+        x2="300"
+        y2="240"
+        gradientUnits="userSpaceOnUse"
+      >
+        <stop stop-color="#e2e7dc" />
+        <stop offset="1" stop-color="#a6b5a6" />
+      </linearGradient>
+      <linearGradient
+        id="chip-metal"
+        x1="0"
+        y1="0"
+        x2="150"
+        y2="150"
+        gradientUnits="userSpaceOnUse"
+      >
+        <stop stop-color="#ecf0e4" />
+        <stop offset="1" stop-color="#8caa94" />
+      </linearGradient>
+      <linearGradient
+        id="board-color"
+        x1="0"
+        y1="0"
+        x2="330"
+        y2="250"
+        gradientUnits="userSpaceOnUse"
+      >
+        <stop stop-color="#274c3c" />
+        <stop offset="1" stop-color="#122e24" />
+      </linearGradient>
+    </defs>
+    <rect width="640" height="590" fill="url(#drawing-grid)" />
+    <g stroke="#6b7a6a" stroke-width="1" stroke-dasharray="3 6" opacity=".45">
+      <path d="M290 99v240M556 215v130M95 218v130M368 338v132" />
+      <path d="M234 145v230M363 202v230" />
+    </g>
+    <ellipse cx="326" cy="500" rx="215" ry="30" fill="#1b3627" opacity=".045" />
+    <g class="diagram-base" transform="matrix(.86 .38 -.75 .40 287 335)">
+      <path
+        d="M0 8h320v250H0z"
+        fill="#849786"
+        stroke="#304b3b"
+        stroke-width="1.5"
+      />
+      <rect
+        width="320"
+        height="250"
+        rx="8"
+        fill="url(#base-metal)"
+        stroke="#304b3b"
+        stroke-width="1.5"
+      />
+      <rect x="15" y="15" width="290" height="220" rx="3" stroke="#627b66" />
+      <rect
+        x="40"
+        y="39"
+        width="240"
+        height="166"
+        rx="4"
+        fill="url(#hatch)"
+        stroke="#627b66"
+      />
+      <path d="M54 50h212v142H54z" fill="#c7d2c3" stroke="#8d9d8c" />
+      {[
+        [23, 23],
+        [297, 23],
+        [23, 227],
+        [297, 227],
+      ].map(([cx, cy]) => (
+        <g>
+          <circle cx={cx} cy={cy} r="5" fill="#798d78" />
+          <path d={`M${cx - 2} ${cy}h4`} stroke="#e5eadf" />
+        </g>
+      ))}
+      <path
+        d="M71 210h178M71 216h178M71 222h178"
+        stroke="#546f58"
+        stroke-width="3"
+      />
+    </g>
+    <g class="diagram-board" transform="matrix(.86 .38 -.75 .40 287 213)">
+      <path
+        d="M0 7h320v250H0z"
+        fill="#091e15"
+        stroke="#152d20"
+        stroke-width="2"
+      />
+      <rect
+        width="320"
+        height="250"
+        rx="6"
+        fill="url(#board-color)"
+        stroke="#365f46"
+        stroke-width="2"
+      />
+      <g stroke="#76985b" stroke-width="1.2" opacity=".7">
+        <path d="M28 26h55l24 24h64M30 35h48l22 24h71M28 44h46l25 25h72M28 53h38l32 27h73M32 168h41l33-33h85M32 177h46l32-33h83M32 186h53l32-33h76M32 195h61l31-33h69M146 17v18l40 39M156 17v14l42 43M166 17v11l44 46M235 91h28l24-24V29M235 101h36l25-25V29M235 113h32l28 28v51M235 123h26l25 25v44M135 170v31l-25 24H36M144 170v36l-23 28H36M154 170v39l-21 34H36M217 168v48h57" />
+        <path d="M12 105h60l27-22M12 115h64l25-23M168 183l20 20v27M179 183l19 18v29M229 200h24l24 24h25" />
+      </g>
+      <g fill="#c6dc85">
+        {[
+          [28, 26],
+          [28, 44],
+          [32, 168],
+          [32, 195],
+          [146, 17],
+          [166, 17],
+          [274, 216],
+          [198, 230],
+          [12, 105],
+          [133, 243],
+        ].map(([cx, cy]) => (
+          <circle cx={cx} cy={cy} r="2.5" />
+        ))}
+      </g>
+      <rect
+        x="109"
+        y="66"
+        width="117"
+        height="109"
+        rx="3"
+        fill="#0c2017"
+        stroke="#a6b88c"
+        stroke-width="1.5"
+      />
+      <g fill="#d8dba3">
+        {pins.map((i) => (
+          <>
+            <rect x={116 + i * 9} y="59" width="4" height="8" />
+            <rect x={116 + i * 9} y="175" width="4" height="8" />
+            <rect x="102" y={69 + i * 9} width="8" height="4" />
+            <rect x="226" y={69 + i * 9} width="8" height="4" />
+          </>
+        ))}
+      </g>
+      <rect
+        x="122"
+        y="79"
+        width="91"
+        height="83"
+        rx="2"
+        fill="url(#chip-metal)"
+        stroke="#d9e6c6"
+      />
+      <rect x="131" y="88" width="73" height="65" rx="1" stroke="#6d8769" />
+      <path
+        d="m166 101 16 9v18l-16 9-16-9v-18l16-9Zm-16 9 16 9 16-9m-16 9v18"
+        stroke="#294b33"
+        stroke-width="3"
+      />
+      <g fill="#0b1a12" stroke="#688060" stroke-width="1">
+        <rect x="33" y="75" width="26" height="56" rx="2" />
+        <rect x="68" y="75" width="26" height="56" rx="2" />
+        <rect x="250" y="82" width="21" height="88" rx="2" />
+        <rect x="280" y="82" width="21" height="88" rx="2" />
+        <rect x="170" y="211" width="70" height="16" rx="2" />
+      </g>
+      <g stroke="#c9ce96" stroke-width="2">
+        {pins.slice(0, 8).map((i) => (
+          <>
+            <path d={`M30 ${79 + i * 7}h4m24 0h5m5 0h3m21 0h4`} />
+            <path d={`M247 ${90 + i * 10}h5m18 0h4m4 0h3m19 0h4`} />
+          </>
+        ))}
+      </g>
+      <g fill="#bac8b0" stroke="#384f37" stroke-width="1.5">
+        <rect x="-7" y="26" width="28" height="37" />
+        <rect x="-7" y="85" width="24" height="30" />
+        <rect x="-7" y="133" width="27" height="48" />
+      </g>
+      <g fill="#314b31">
+        <rect x="-7" y="33" width="11" height="21" />
+        <rect x="-7" y="91" width="10" height="17" />
+        <rect x="-7" y="141" width="10" height="32" />
+      </g>
+      <g fill="#b8c698" stroke="#152d20" stroke-width="2">
+        {[
+          [28, 15],
+          [303, 15],
+          [28, 228],
+          [303, 228],
+        ].map(([cx, cy]) => (
+          <circle cx={cx} cy={cy} r="5" />
+        ))}
+      </g>
+      <g fill="#d3f96b">
+        {pins.slice(0, 7).map((i) => (
+          <rect x={40 + i * 11} y="214" width="5" height="14" />
+        ))}
+      </g>
+    </g>
+    <g class="diagram-heatsink" transform="matrix(.86 .38 -.75 .40 284 92)">
+      <path
+        d="M99 62h138v140H99z"
+        fill="#8fa38d"
+        stroke="#405d42"
+        stroke-width="2"
+      />
+      <path
+        d="M99 42h138v140H99z"
+        fill="#c8d6bc"
+        stroke="#405d42"
+        stroke-width="2"
+      />
+      {fins.map((i) => (
+        <path
+          d={`M${100 + i * 9} 42v140l5 18V60Z`}
+          fill={i % 2 ? '#b7c8aa' : '#dfe8d4'}
+          stroke="#536f4e"
+          stroke-width=".7"
+        />
+      ))}
+      <path
+        d="M97 38h141v7H97zM97 178h141v7H97z"
+        fill="#d2e2be"
+        stroke="#405d42"
+      />
+    </g>
+    <g class="diagram-labels" stroke="#4c6351" stroke-width="1">
+      <path d="M343 149h83l35-37h99" />
+      <circle cx="343" cy="149" r="3" fill="#d6fb71" />
+      <path d="M393 307h49l35-19h83" />
+      <circle cx="393" cy="307" r="3" fill="#d6fb71" />
+      <path d="M193 406h-59l-31 24H36" />
+      <circle cx="193" cy="406" r="3" fill="#d6fb71" />
+    </g>
+    <g
+      class="diagram-labels"
+      fill="#3b5543"
+      font-family="IBM Plex Mono,monospace"
+      font-size="10"
+      letter-spacing="1"
+    >
+      <text x="462" y="102">
+        01 / THERMALS
+      </text>
+      <text x="478" y="278">
+        02 / COMPUTE
+      </text>
+      <text x="36" y="450">
+        03 / BUILD
+      </text>
+    </g>
+    <g stroke="#7a8d74" stroke-width="1">
+      <path d="M18 24h12m-6-6v12M610 24h12m-6-6v12M18 568h12m-6-6v12M610 568h12m-6-6v12" />
+    </g>
+  </svg>
+  <div class="figure-bottom mono">
+    <span>CONCEPT ASSEMBLY · NOT A TESTED UNIT</span>
+    <span>PLATE 01</span>
+  </div>
+</div>
