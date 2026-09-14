@@ -1,218 +1,673 @@
 ---
 import Layout from '../layouts/Layout.astro';
-const title = 'Arca Open Hardware Lab | Open compatibility research';
-const description = 'An independent hardware compatibility lab based in Santiago. We register every unit, run reproducible tests, publish evidence and send failures upstream.';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Arrow from '../components/Arrow.astro';
+import HardwareDiagram from '../components/HardwareDiagram.astro';
+const title = 'Arca Open Hardware Lab | Hardware, in the open.';
+const description =
+  'Independent hardware compatibility research in Santiago, Chile. Real machines, reproducible methods, public evidence. Hardware intake is open.';
 const repo = 'https://github.com/arcacomputer/open-hardware-lab';
 const methodology = `${repo}/tree/main/methodology`;
 const inventory = `${repo}/tree/main/hardware`;
 const ledger = `${repo}/tree/main/ledger`;
-const contact = 'ohl@arca.computer';
-const intakeEmail = `mailto:${contact}?subject=Open%20Hardware%20Lab%20intake`;
+const intakeEmail =
+  'mailto:ohl@arca.computer?subject=Open%20Hardware%20Lab%20intake';
 const supportUrl = 'https://buy.stripe.com/aFacN41Lw5oH1BH7G57ss03';
+const tracks = [
+  {
+    id: 'omarchy',
+    number: '01',
+    title: 'Omarchy compatibility',
+    short: 'Omarchy',
+    question: 'A clean install is only the beginning.',
+    description:
+      'What happens when a real machine becomes a daily driver? Follow installation, suspend, graphics, media and updates through repeatable runs.',
+    categories: [
+      'Installation & boot',
+      'Suspend & resume',
+      'Graphics & displays',
+      'Media & connectivity',
+    ],
+    symbol: 'terminal',
+    note: 'From first boot to everyday use.',
+  },
+  {
+    id: 'linux',
+    number: '02',
+    title: 'Retail Linux hardware',
+    short: 'Retail Linux',
+    question: 'Same model. Different machine?',
+    description:
+      'A model name rarely tells the whole story. Examine exact retail configurations, regional SKUs and the components people can actually buy.',
+    categories: [
+      'Exact configuration',
+      'Regional components',
+      'Input & connectivity',
+      'Firmware & kernel',
+    ],
+    symbol: 'board',
+    note: 'The configuration is the evidence.',
+  },
+  {
+    id: 'agents',
+    number: '03',
+    title: 'Agent workstations',
+    short: 'Agent workloads',
+    question: 'Does it hold up when the work gets real?',
+    description:
+      'Investigate containers, hosted-agent workflows, local inference where practical, and sustained developer use with bounded, documented workloads.',
+    categories: [
+      'Containers & virtualization',
+      'Sustained thermals',
+      'Power behavior',
+      'Developer workloads',
+    ],
+    symbol: 'compute',
+    note: 'Useful workloads. Documented limits.',
+  },
+  {
+    id: 'regressions',
+    number: '04',
+    title: 'Regression watch',
+    short: 'Regression watch',
+    question: 'It worked yesterday. What changed?',
+    description:
+      'Keep the hardware in the loop. Repeat runs after firmware, kernel and operating-system updates to make improvements and regressions visible.',
+    categories: [
+      'Firmware changes',
+      'Kernel updates',
+      'Repeated test runs',
+      'Upstream issue history',
+    ],
+    symbol: 'cycle',
+    note: 'A longer life for every test result.',
+  },
+];
+const stages = [
+  {
+    number: '01',
+    label: 'UNIT',
+    title: 'Know the machine.',
+    text: 'Register an OHL ID, exact configuration, regional SKU, source, ownership and provider relationship.',
+  },
+  {
+    number: '02',
+    label: 'RUN',
+    title: 'Ask a useful question.',
+    text: 'Choose an operating system and a bounded test. Record the method, versions and conditions.',
+  },
+  {
+    number: '03',
+    label: 'REPORT',
+    title: 'Show the evidence.',
+    text: 'Publish privacy-scrubbed observations, failures, workarounds, expenses and upstream links.',
+  },
+  {
+    number: '04',
+    label: 'RETEST',
+    title: 'Keep asking.',
+    text: 'Run it again after firmware, kernel and operating-system changes. A result is a record, not a lifetime verdict.',
+  },
+];
 ---
-<Layout {title} {description}>
-  <header class="wrap topbar">
-    <div class="brand"><span class="mark" aria-hidden="true"></span> ARCA OPEN HARDWARE LAB <span class="prototype">Santiago · Node 001</span></div>
-    <nav aria-label="Main navigation">
-      <a href="#lab">Lab status</a>
-      <a href="#work">How it works</a>
-      <a href="#tracks">Research tracks</a>
-      <a href="#partners">Send hardware</a>
-      <a href="#fund">Support</a>
-      <a href={repo}>GitHub</a>
-    </nav>
-  </header>
 
-  <main>
-    <section class="wrap hero">
-      <div>
-        <div class="eyebrow"><span class="dot" aria-hidden="true"></span> Hardware intake open · Santiago, Chile</div>
-        <h1>Test locally.<span>Publish globally.</span></h1>
-        <p class="lead">An independent compatibility lab that works with the hardware it can obtain, asks useful questions and publishes the unit, relationship, method, expense, failure and upstream outcome.</p>
+<Layout {title} {description}>
+  <Header />
+  <main id="main-content">
+    <section class="wrap hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow">
+          <span class="crosshair" aria-hidden="true">
+            +
+          </span>{' '}
+          Independent research. Real machines.
+        </p>
+        <h1 id="hero-title">
+          <span>Hardware,</span>
+          <span>
+            in the <em>open.</em>
+          </span>
+        </h1>
+        <p class="hero-description">
+          What works. What breaks. What changes.
+          <br />
+          We test hardware in Santiago and publish the evidence for everyone.
+        </p>
         <div class="hero-actions">
-          <a class="button" href={intakeEmail}>Offer hardware</a>
-          <a class="button secondary" href="#lab">See the open lab queue</a>
+          <a class="button" href="#tracks">
+            Explore the research <Arrow />
+          </a>
+          <a class="text-link" href="#partners">
+            Offer hardware <Arrow diagonal />
+          </a>
+        </div>
+        <div class="hero-location mono">
+          <span class="status-dot" aria-hidden="true"></span> SANTIAGO, CHILE{' '}
+          <span class="location-divider">/</span> NODE 001
         </div>
       </div>
-      <div class="machine" aria-hidden="true">
-        <div class="laptop-lid">
-          <div class="terminal" aria-hidden="true">
-            <strong>$ ohl status --node santiago-001</strong><br>
-            intake&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;open<br>
-            public_units&nbsp;&nbsp;0<br>
-            active_runs&nbsp;&nbsp;&nbsp;0<br>
-            reports&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0<br>
-            <span class="muted-code">→ queue: omarchy · linux · agents</span><br>
-            <strong>→ evidence before verdict</strong> <span class="cursor"></span>
+      <HardwareDiagram />
+    </section>
+    <section id="lab" class="lab-status" aria-labelledby="lab-title">
+      <div class="wrap status-inner">
+        <div class="status-intake">
+          <span class="status-dot" aria-hidden="true"></span>
+          <div>
+            <h2 id="lab-title">Hardware intake open</h2>
+            <p>Building the public inventory.</p>
+          </div>
+          <a href="#partners" aria-label="How to offer hardware">
+            <Arrow diagonal />
+          </a>
+        </div>
+        <dl class="status-numbers">
+          <div>
+            <dt>Public units</dt>
+            <dd>00</dd>
+          </div>
+          <div>
+            <dt>Active runs</dt>
+            <dd>00</dd>
+          </div>
+          <div>
+            <dt>Published reports</dt>
+            <dd>00</dd>
+          </div>
+        </dl>
+        <a class="status-register text-link" href={inventory}>
+          View the register <Arrow diagonal />
+        </a>
+      </div>
+    </section>
+    <section
+      class="wrap introduction section-space"
+      aria-labelledby="open-title"
+    >
+      <div class="section-index">
+        <span class="mono">01 / THE PRINCIPLE</span>
+        <span class="small-cross" aria-hidden="true">
+          +
+        </span>
+      </div>
+      <div class="intro-grid">
+        <h2 id="open-title">
+          A machine is a<br />
+          starting point.
+          <br />
+          <span class="muted-heading">Evidence is the work.</span>
+        </h2>
+        <div class="intro-copy">
+          <h3>What “open” means here</h3>
+          <p>
+            The process is open: methodology, provenance, disclosures, evidence,
+            expenses and upstream work. We don’t claim that every computer we
+            test is open hardware.
+          </p>
+          <p>
+            One machine can answer many questions, across operating systems and
+            years. Test locally. Publish globally.
+          </p>
+          <a
+            class="text-link"
+            href={`${repo}/blob/main/governance/independence.md`}
+          >
+            Read our independence policy <Arrow diagonal />
+          </a>
+        </div>
+      </div>
+    </section>
+    <section
+      id="tracks"
+      class="research-section section-space"
+      aria-labelledby="research-title"
+    >
+      <div class="wrap">
+        <div class="section-index">
+          <span class="mono">02 / RESEARCH DIRECTIONS</span>
+          <span class="mono">FOUR OPEN TRACKS</span>
+        </div>
+        <div class="section-heading">
+          <h2 id="research-title">
+            Better questions.
+            <br />
+            Useful answers.
+          </h2>
+          <p>
+            Compatibility goes beyond a spec sheet.
+            <br />
+            These are the questions shaping our queue.
+          </p>
+        </div>
+        <div class="research-explorer" data-research-explorer>
+          <div
+            class="track-selector"
+            role="tablist"
+            aria-label="Research tracks"
+            aria-orientation="vertical"
+            hidden
+          >
+            {tracks.map((track, i) => (
+              <button
+                id={`tab-${track.id}`}
+                class="track-tab"
+                type="button"
+                role="tab"
+                aria-controls={`track-${track.id}`}
+                aria-selected={i === 0 ? 'true' : 'false'}
+                tabindex={i === 0 ? 0 : -1}
+              >
+                <span class="track-number mono">{track.number}</span>
+                <span>{track.short}</span>
+                <Arrow />
+              </button>
+            ))}
+          </div>
+          <div class="track-panels">
+            {tracks.map((track) => (
+              <section
+                id={`track-${track.id}`}
+                class="track-panel"
+                data-track-panel
+                aria-labelledby={`track-title-${track.id}`}
+              >
+                <div class="track-panel-top">
+                  <span class="mono">
+                    {track.number} / {track.title}
+                  </span>
+                  <span class="queue-label mono">IN THE QUEUE</span>
+                </div>
+                <div class="track-symbol" aria-hidden="true">
+                  {track.symbol === 'terminal' && (
+                    <svg viewBox="0 0 160 100" fill="none">
+                      <rect x="15" y="10" width="130" height="80" rx="4" />
+                      <path d="M15 29h130M25 20h4m6 0h4m6 0h4M39 47l17 13-17 13m32 0h36" />
+                      <path
+                        class="symbol-accent"
+                        d="m39 47 17 13-17 13m32 0h36"
+                      />
+                    </svg>
+                  )}
+                  {track.symbol === 'board' && (
+                    <svg viewBox="0 0 160 100" fill="none">
+                      <rect x="25" y="10" width="110" height="80" rx="4" />
+                      <path d="M48 10v16h16m71 40h-29v-8M48 90V73h13M25 44h37m34-34v18M79 74v16" />
+                      <rect
+                        class="symbol-accent"
+                        x="62"
+                        y="31"
+                        width="36"
+                        height="36"
+                      />
+                      <path d="M110 22h12v19h-12zM35 57h12v13H35z" />
+                    </svg>
+                  )}
+                  {track.symbol === 'compute' && (
+                    <svg viewBox="0 0 160 100" fill="none">
+                      <path d="m80 10 50 28-50 29-50-29 50-28Zm-50 44 50 29 50-29M30 70l50 29 50-29" />
+                      <path
+                        class="symbol-accent"
+                        d="m80 10 50 28-50 29-50-29 50-28Z"
+                      />
+                      <path d="M80 67v32" />
+                    </svg>
+                  )}
+                  {track.symbol === 'cycle' && (
+                    <svg viewBox="0 0 160 100" fill="none">
+                      <path d="M117 34A40 40 0 0 0 43 30M43 66a40 40 0 0 0 74 4" />
+                      <path
+                        class="symbol-accent"
+                        d="M117 12v23H94M43 89V66h23"
+                      />
+                      <path d="m66 50 10 10 21-23" />
+                    </svg>
+                  )}
+                  <span class="mono">{track.note}</span>
+                </div>
+                <h3 id={`track-title-${track.id}`}>{track.question}</h3>
+                <p>{track.description}</p>
+                <ul class="track-categories">
+                  {track.categories.map((category) => (
+                    <li>{category}</li>
+                  ))}
+                </ul>
+              </section>
+            ))}
           </div>
         </div>
-        <div class="stamp">RESULTS STAY PUBLIC</div>
+        <p class="research-note mono">
+          TRACKS ARE RESEARCH DIRECTIONS. THEY DO NOT GUARANTEE A TEST, SCHEDULE
+          OR PUBLICATION.
+        </p>
       </div>
     </section>
-
-    <div class="strip" aria-hidden="true"><div class="ticker"><span>OPEN PROVENANCE</span><span>REPRODUCIBLE RUNS</span><span>OPEN EXPENSES</span><span>UPSTREAM FIRST</span><span>INDEPENDENT RESULTS</span><span>OPEN PROVENANCE</span><span>REPRODUCIBLE RUNS</span><span>OPEN EXPENSES</span><span>UPSTREAM FIRST</span><span>INDEPENDENT RESULTS</span></div></div>
-
-    <section class="definition">
-      <div class="wrap definition-grid">
-        <div class="kicker">What “open” means here</div>
-        <p>OHL does not claim that every computer it tests is open hardware. The <strong>methodology, provenance, disclosures, evidence, expense records and upstream work</strong> are open. Physical tests happen in Santiago today; the results are designed to be reproduced anywhere.</p>
+    <section
+      id="work"
+      class="wrap method-section section-space"
+      aria-labelledby="method-title"
+    >
+      <div class="section-index">
+        <span class="mono">03 / THE METHOD</span>
+        <a class="text-link mono" href={methodology}>
+          READ THE METHODOLOGY <Arrow diagonal />
+        </a>
+      </div>
+      <div class="section-heading">
+        <h2 id="method-title">
+          Every result
+          <br />
+          has a paper trail.
+        </h2>
+        <p>
+          Units, runs, reports, retests.
+          <br />A record you can follow. A method you can repeat.
+        </p>
+      </div>
+      <ol class="method-steps">
+        {stages.map((stage) => (
+          <li>
+            <div class="step-top">
+              <span class="step-number">{stage.number}</span>
+              <Arrow />
+            </div>
+            <span class="mono step-label">{stage.label}</span>
+            <h3>{stage.title}</h3>
+            <p>{stage.text}</p>
+          </li>
+        ))}
+      </ol>
+      <div class="method-footnote">
+        <span class="mono">METHOD STATUS</span>
+        <p>
+          Baseline categories and evidence rules are published. Executable test
+          definitions will be added before the first public run.
+        </p>
       </div>
     </section>
-
-    <section id="lab" class="wrap">
-      <div class="section-head">
-        <div><div class="kicker">Live operating state</div><h2>The lab starts empty, not imaginary.</h2></div>
-        <p class="section-copy">OHL grows from hardware accepted, money actually available and questions worth answering. Empty states remain visible until evidence replaces them.</p>
-      </div>
-      <div class="status-grid">
-        <article><span class="state open">OPEN</span><h3>Hardware intake</h3><p>Proposals are reviewed before anything ships.</p></article>
-        <article><span class="state empty">EMPTY</span><h3>Public inventory</h3><p>No physical unit has been accepted into the public register yet.</p></article>
-        <article><span class="state ready">READY</span><h3>Baseline method</h3><p>Core test and evidence categories are published.</p><a href={methodology}>methodology</a></article>
-        <article><span class="state queue">QUEUE</span><h3>Research questions</h3><p>Omarchy, retail Linux compatibility and agent workloads are open tracks.</p></article>
-      </div>
-    </section>
-
-    <section id="work" class="proof">
-      <div class="wrap">
-        <div class="section-head">
-          <div><div class="kicker">Inventory-driven research</div><h2>Units, runs, reports, retests.</h2></div>
-          <p class="section-copy">Campaigns are optional procurement tools, not the lab’s skeleton. One machine can answer several questions across multiple operating systems and years.</p>
+    <section
+      id="ledger"
+      class="register-section section-space"
+      aria-labelledby="register-title"
+    >
+      <div class="wrap register-grid">
+        <div class="register-copy">
+          <span class="mono">04 / THE PUBLIC RECORD</span>
+          <h2 id="register-title">
+            Nothing hidden.
+            <br />
+            Nothing invented.
+          </h2>
+          <p>
+            The lab starts empty, not imaginary. No physical unit has been
+            accepted into the public register yet.
+          </p>
+          <p>
+            Hardware intake is open. The method is taking shape. This is where
+            the evidence will go.
+          </p>
+          <a class="text-link" href={repo}>
+            Follow the work on GitHub <Arrow diagonal />
+          </a>
         </div>
-        <div class="flow research-flow">
-          <article><h3>Register the unit</h3><p>Assign an OHL ID and publish the exact configuration, regional SKU, source, ownership and provider relationship.</p></article>
-          <article><h3>Choose the run</h3><p>Select an operating system and bounded research question based on public value, available funds and lab capacity.</p></article>
-          <article><h3>Publish the report</h3><p>Release privacy-scrubbed evidence, observations, failures, workarounds, expenses and upstream links.</p></article>
-          <article><h3>Retest over time</h3><p>Track what changes after firmware, kernel and operating-system updates instead of issuing one disposable verdict.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="routes">
-      <div class="wrap">
-        <div class="section-head">
-          <div><div class="kicker">Inputs, not promises</div><h2>Work with what is real.</h2></div>
-          <p class="section-copy">The next run comes from the intersection of available hardware, available lab funds, useful research questions and enough capacity to document the work properly.</p>
-        </div>
-        <div class="route-grid">
-          <article class="route-card local">
-            <div class="route-label">Hardware pool</div>
-            <h3>What the lab can obtain.</h3>
-            <p>Owned machines, local retail purchases, permanent placements and approved loaners all enter the same public inventory system.</p>
-            <ul><li>Exact unit and regional SKU</li><li>Ownership and custody</li><li>Provider relationship</li><li>Return deadline when loaned</li></ul>
-          </article>
-          <article class="route-card supplied">
-            <div class="route-label">Lab fund</div>
-            <h3>What the lab can afford.</h3>
-            <p>General support is pooled until a transparent allocation is made. A specific funding target is opened only when a particular purchase or study requires it.</p>
-            <ul><li>Gross support and processing fees</li><li>Public allocations</li><li>Retail invoices and logistics</li><li>No hidden preorder obligations</li></ul>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="tracks" class="wrap">
-      <div class="section-head">
-        <div><div class="kicker">Open research queue</div><h2>Questions can share hardware.</h2></div>
-        <p class="section-copy">Tracks organize ongoing questions. They do not lock a machine into one campaign or guarantee that every proposed run will happen.</p>
-      </div>
-      <div class="track-grid">
-        <article><span>01</span><h3>Omarchy compatibility</h3><p>Installation, daily use, power, suspend, media, graphics and update behavior on real machines.</p></article>
-        <article><span>02</span><h3>Retail Linux hardware</h3><p>Exact configurations people can actually buy, including regional component and warranty differences.</p></article>
-        <article><span>03</span><h3>Agent workstations</h3><p>Containers, local inference where practical, hosted-agent workflows, thermals and sustained developer use.</p></article>
-        <article><span>04</span><h3>Regression watch</h3><p>Repeatable retests after firmware, kernel and operating-system changes.</p></article>
-      </div>
-    </section>
-
-    <section id="partners" class="partner-section">
-      <div class="wrap">
-        <div class="section-head">
-          <div><div class="kicker">Hardware intake</div><h2>Give a machine a public job.</h2></div>
-          <p class="section-copy">Do not ship first and negotiate later. Every unit needs written approval, declared ownership, workable logistics and permission to publish independent results.</p>
-        </div>
-        <div class="partner-grid">
-          <article><div class="partner-number">01</div><h3>Temporary loan</h3><p>A time-bounded research loan with arrival condition, disclosed ownership, return date and prepaid return logistics.</p></article>
-          <article><div class="partner-number">02</div><h3>Permanent placement</h3><p>Ownership transfers to Arca so the machine can remain in the inventory for long-term regression testing.</p></article>
-          <article><div class="partner-number">03</div><h3>Retail delivery</h3><p>A partner funds or supplies an exact unit through an approved retailer or distributor with clean warranty and customs handling.</p></article>
-        </div>
-        <div class="intake-rules">
-          <div><div class="kicker">Acceptance gate</div><h3>Useful, documentable, unconditional.</h3></div>
-          <ul><li>Exact configuration known</li><li>Research value is clear</li><li>Shipping and return are solved</li><li>No favorable-result condition</li></ul>
-        </div>
-        <div class="partner-cta">
-          <div><strong>Want to offer hardware?</strong><span>Email the model, exact configuration, location, ownership proposal and shipping plan to <a href={intakeEmail}>{contact}</a>. A suggestion does not guarantee an operating system, schedule, report or positive result.</span></div>
-          <a class="button" href={intakeEmail}>Start intake</a>
-        </div>
-      </div>
-    </section>
-
-    <section id="ledger" class="proof ledger-section">
-      <div class="wrap">
-        <div class="section-head">
-          <div><div class="kicker">Public record</div><h2>Follow the unit to the outcome.</h2></div>
-          <p class="section-copy">Every accepted unit connects provenance, custody, test runs, reports, expenses and upstream work. Nothing is promoted from empty to complete by vibes.</p>
-        </div>
-        <div class="ledger-wrap">
-          <table class="ledger">
-            <caption class="sr-only">Current Open Hardware Lab operating ledger</caption>
-            <thead><tr><th scope="col">State</th><th scope="col">Record</th><th scope="col">Evidence</th></tr></thead>
+        <div class="register-table-wrap">
+          <div class="register-caption mono">
+            <span>OHL / REGISTER INDEX</span>
+            <span>PUBLIC</span>
+          </div>
+          <table class="register-table">
+            <caption class="sr-only">
+              Current Open Hardware Lab records and status
+            </caption>
+            <thead>
+              <tr>
+                <th scope="col">Record</th>
+                <th scope="col">State</th>
+                <th scope="col">
+                  <span class="sr-only">Source</span>
+                </th>
+              </tr>
+            </thead>
             <tbody>
-              <tr><td><span class="status">OPEN</span></td><td>Hardware proposals accepted through written intake</td><td><a class="evidence" href={intakeEmail}>contact</a></td></tr>
-              <tr><td><span class="status">READY</span></td><td>Baseline methodology and evidence rules</td><td><a class="evidence" href={methodology}>source</a></td></tr>
-              <tr><td><span class="status">EMPTY</span></td><td>No public hardware unit accepted yet</td><td><a class="evidence" href={inventory}>inventory</a></td></tr>
-              <tr><td><span class="status">QUEUE</span></td><td>Omarchy, retail Linux and agent workload tracks</td><td><a class="evidence" href={repo}>repository</a></td></tr>
-              <tr><td><span class="status">LIVE</span></td><td>Unrestricted voluntary support is available</td><td><a class="evidence" href={ledger}>ledger policy</a></td></tr>
+              <tr>
+                <th scope="row">
+                  Hardware inventory<small>Provenance & custody</small>
+                </th>
+                <td>
+                  <span class="record-state">Awaiting units</span>
+                </td>
+                <td>
+                  <a href={inventory} aria-label="Open hardware inventory">
+                    <Arrow diagonal />
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  Baseline methodology
+                  <small>Test categories & evidence rules</small>
+                </th>
+                <td>
+                  <span class="record-state ready">Published</span>
+                </td>
+                <td>
+                  <a href={methodology} aria-label="Open baseline methodology">
+                    <Arrow diagonal />
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  Reports & retests
+                  <small>Results, failures & upstream work</small>
+                </th>
+                <td>
+                  <span class="record-state">Awaiting runs</span>
+                </td>
+                <td>
+                  <a
+                    href={`${repo}/tree/main/reports`}
+                    aria-label="Open reports and retests"
+                  >
+                    <Arrow diagonal />
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  Lab ledger<small>Support, expenses & allocations</small>
+                </th>
+                <td>
+                  <span class="record-state ready">Policy published</span>
+                </td>
+                <td>
+                  <a href={ledger} aria-label="Open lab ledger">
+                    <Arrow diagonal />
+                  </a>
+                </td>
+              </tr>
             </tbody>
           </table>
+          <p class="register-note mono">
+            CURRENT PUBLISHED STATE · MAINTAINED IN THE REPOSITORY
+          </p>
         </div>
       </div>
     </section>
-
-    <section id="fund" class="wrap">
-      <div id="support-thanks" class="support-thanks" role="status" hidden>
-        <strong>Support received. Thank you.</strong>
-        <span>Stripe has sent the receipt to the email used at checkout.</span>
+    <section
+      id="partners"
+      class="wrap contribute-section section-space"
+      aria-labelledby="contribute-title"
+    >
+      <div class="section-index">
+        <span class="mono">05 / MAKE THE WORK POSSIBLE</span>
+        <span class="small-cross" aria-hidden="true">
+          +
+        </span>
       </div>
-      <div class="section-head">
-        <div><div class="kicker">Stripe-backed support</div><h2>Fund the lab, not a verdict.</h2></div>
-        <p class="section-copy">Choose a one-time amount in USD. Support joins the unallocated OHL pool until the lab publishes a specific hardware, logistics or research allocation.</p>
+      <div class="section-heading">
+        <h2 id="contribute-title">
+          Put hardware
+          <br />
+          to public use.
+        </h2>
+        <p>
+          Have a machine worth investigating?
+          <br />
+          Help turn it into a reproducible record.
+        </p>
       </div>
-      <div class="funding-grid">
-        <aside class="meter-card" aria-label="Open Hardware Lab support model">
-          <div class="kicker" style="color:var(--acid)">You choose the amount</div>
-          <div class="amount">$5+</div>
-          <div class="goal">one-time support in USD</div>
-          <p class="tiny">General support is not a preorder, reservation, purchased test or guarantee that a particular machine, operating system or report will be selected.</p>
-        </aside>
-        <div class="support-card">
-          <div class="kicker">Voluntary support</div>
-          <h3>Back open evidence.</h3>
-          <p>Your payment supports independent testing, public evidence, equipment and upstream work. It does not buy goods, services, attribution, editorial control or a favorable result.</p>
-          <ul>
-            <li>One-time, customer-chosen amount</li>
-            <li>Processed and receipted by Stripe</li>
-            <li>Recorded as support revenue by Arca Computer, Inc.</li>
-            <li>Not a charitable contribution or tax-deductible</li>
-          </ul>
-          <div class="support-actions">
-            <a class="button" href={supportUrl} rel="external nofollow">Support with Stripe</a>
-            <a href="/support-terms/">Read the support terms</a>
+      <div class="intake-layout">
+        <div class="intake-intro">
+          <span class="label mono">Hardware pool</span>
+          <h3>
+            There’s more than
+            <br />
+            one way in.
+          </h3>
+          <p>
+            Owned machines, approved loans, permanent placements and retail
+            purchases enter the same public inventory.
+          </p>
+          <p>
+            We select work from available hardware, funds, research value and
+            lab capacity. Campaigns are optional procurement tools.
+          </p>
+          <a class="button" href={intakeEmail}>
+            Offer hardware <Arrow diagonal />
+          </a>
+        </div>
+        <div class="intake-options">
+          <article>
+            <span class="mono">01</span>
+            <div>
+              <h3>Temporary loan</h3>
+              <p>
+                A bounded research loan with arrival condition, disclosed
+                ownership, return date and prepaid return logistics.
+              </p>
+            </div>
+            <Arrow diagonal />
+          </article>
+          <article>
+            <span class="mono">02</span>
+            <div>
+              <h3>Permanent placement</h3>
+              <p>
+                Ownership transfers to Arca Computer, Inc. The machine stays in
+                the inventory for long-term regression testing.
+              </p>
+            </div>
+            <Arrow diagonal />
+          </article>
+          <article>
+            <span class="mono">03</span>
+            <div>
+              <h3>Retail delivery</h3>
+              <p>
+                Fund or supply an exact unit through an approved retailer or
+                distributor, with warranty and customs responsibilities
+                resolved.
+              </p>
+            </div>
+            <Arrow diagonal />
+          </article>
+        </div>
+      </div>
+      <details class="intake-details">
+        <summary>
+          <span>
+            <span class="status-dot" aria-hidden="true"></span> Before anything
+            ships
+          </span>
+          <span class="details-plus" aria-hidden="true">
+            +
+          </span>
+        </summary>
+        <div class="intake-detail-content">
+          <p>
+            Get written intake approval first. Send the model, exact
+            configuration, location, ownership proposal and shipping plan to{' '}
+            <a href={intakeEmail}>ohl@arca.computer</a>. International intake
+            must resolve shipping, customs, warranty and return
+            responsibilities; local distribution or DDP is preferred.
+          </p>
+          <p>
+            The unit must have clear research value, workable logistics and a
+            publicly disclosed relationship. No favorable-result or
+            editorial-control conditions are accepted. A suggestion does not
+            guarantee an operating system, schedule, report or positive result.
+          </p>
+        </div>
+      </details>
+    </section>
+    <section id="fund" class="fund-section" aria-labelledby="fund-title">
+      <div class="wrap">
+        <div id="support-thanks" class="support-thanks" role="status" hidden>
+          <strong>Thank you for supporting open research.</strong>
+          <span>
+            If your payment completed, Stripe will send a receipt to the email
+            used at checkout.
+          </span>
+        </div>
+        <div class="fund-inner">
+          <div class="fund-copy">
+            <span class="mono">Lab fund / voluntary support</span>
+            <h2 id="fund-title">
+              Fund the work.
+              <br />
+              <span>Free the findings.</span>
+            </h2>
+            <p>
+              Help cover equipment, testing and public evidence.
+              <br />
+              General support stays in the unallocated OHL pool until a specific
+              use is published.
+            </p>
+            <a class="text-link" href={ledger}>
+              Follow the money <Arrow diagonal />
+            </a>
           </div>
-          <div class="integrity"><strong>Integrity clause:</strong> support funds lab capacity, not a positive result, private user data, editorial control or a promised upstream merge.</div>
+          <div class="fund-action">
+            <span class="mono">ONE-TIME SUPPORT · USD</span>
+            <div class="support-amount">
+              Your call<span aria-hidden="true">↗</span>
+            </div>
+            <p>You choose the amount at checkout.</p>
+            <a
+              class="button button-lime"
+              href={supportUrl}
+              rel="external nofollow"
+            >
+              Support with Stripe <Arrow diagonal />
+            </a>
+            <a class="terms-link" href="/support-terms/">
+              Read the support terms
+            </a>
+            <p class="fund-disclosure">
+              Voluntary support to Arca Computer, Inc. Not a charitable
+              contribution or tax-deductible. No goods, services, reserved tests
+              or promised results.
+            </p>
+          </div>
         </div>
-      </div>
-    </section>
-
-    <section class="wrap">
-      <div class="not-ad">
-        <div><h3>What stays open.</h3><ul><li>Unit provenance and custody</li><li>Methodology and test definitions</li><li>Privacy-scrubbed evidence</li><li>Expenses, failures and upstream work</li></ul></div>
-        <div><h3>What nobody can buy.</h3><ul><li>A positive result</li><li>A guaranteed test or deadline</li><li>Editorial approval</li><li>Removal of legitimate failures</li></ul></div>
+        <div class="independence-line">
+          <span class="independence-symbol" aria-hidden="true">
+            ↗
+          </span>
+          <p>
+            <strong>Our independence isn’t for sale.</strong> No paid verdicts.
+            No editorial approval. No removal of legitimate failures. Support
+            buys lab capacity, never a conclusion.
+          </p>
+          <a
+            href={`${repo}/blob/main/governance/independence.md`}
+            aria-label="Read the research independence policy"
+          >
+            <Arrow diagonal />
+          </a>
+        </div>
       </div>
     </section>
   </main>
-
-  <footer>
-    <div class="wrap footer-grid"><span>Arca Computer, Inc. · Santiago Lab, Node 001 · <a href={intakeEmail}>{contact}</a> · <a href={repo}>Open repository</a></span><span>Based in Chile. Built for reproducible use anywhere. Independent from tested vendors and operating-system projects.</span></div>
-  </footer>
-
-  <script is:inline src="/lab.js"></script>
+  <Footer />
 </Layout>

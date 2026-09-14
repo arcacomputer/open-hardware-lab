@@ -101,10 +101,13 @@ npm ci
 npm run check
 npm run build
 npm run validate
+npm test
 npm run preview
 ```
 
 Cloudflare deployment uses Workers Static Assets. The site is fully static and does not require the Astro Cloudflare server adapter.
+
+The site uses locally hosted Archivo and IBM Plex Mono fonts, an original SVG hardware illustration and a small progressive-enhancement script. Navigation and all four research tracks remain available without JavaScript. Interaction tests run against the built HTML and cover tab selection, keyboard commands, menu state, support returns and document structure; they do not replace browser layout or assistive-technology testing.
 
 ## Licenses
 

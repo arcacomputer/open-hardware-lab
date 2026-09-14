@@ -1,0 +1,46 @@
+---
+import Arrow from './Arrow.astro';
+const home = Astro.url.pathname === '/' ? '' : '/';
+---
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="/" aria-label="Arca Open Hardware Lab home">
+      <svg
+        class="brand-mark"
+        width="42"
+        height="42"
+        viewBox="0 0 42 42"
+        fill="none"
+        aria-hidden="true"
+      >
+        <path d="m21 4 16 9v17l-16 9L5 30V13L21 4Z" />
+        <path d="m5 13 16 9 16-9M21 22v17M13 17.5V26l8 4.5 8-4.5v-8.5" />
+      </svg>
+      <span class="brand-name">
+        arca<span>Open Hardware Lab</span>
+      </span>
+    </a>
+    <button
+      class="menu-toggle"
+      aria-expanded="false"
+      aria-controls="primary-navigation"
+      hidden
+    >
+      Menu <span aria-hidden="true">+</span>
+    </button>
+    <nav id="primary-navigation" aria-label="Main navigation">
+      <a href={`${home}#lab`}>The lab</a>
+      <a href={`${home}#tracks`}>Research</a>
+      <a href={`${home}#work`}>Method</a>
+      <a href={`${home}#partners`}>Contribute</a>
+      <a href={`${home}#fund`}>Support</a>
+      <a
+        class="nav-source"
+        href="https://github.com/arcacomputer/open-hardware-lab"
+      >
+        Source <Arrow diagonal />
+      </a>
+    </nav>
+  </div>
+</header>
